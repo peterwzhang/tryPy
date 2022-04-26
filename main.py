@@ -33,7 +33,6 @@ class BlockManager:
                 return block
         return None
 
-
 def setup_screen(title, x, y):
     pygame.init()   # initialize the pygame module
     pygame.display.set_caption(title)
