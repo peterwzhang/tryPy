@@ -46,9 +46,12 @@ def main():
 
 
     tryPy_manager.add_block(Block(0, 0, 100, 100))
-    tryPy_manager.add_block(Conditional(100, 0, 100, 100))
-    tryPy_manager.add_block(Loop(200, 0, 100, 100))
-    tryPy_manager.add_block(Start(300, 0, 100, 100))
+    tryPy_manager.add_block(Start(100, 0, 100, 100))
+    tryPy_manager.add_block(If(200, 0, 100, 100))
+    tryPy_manager.add_block(While(300, 0, 100, 100))
+    tryPy_manager.add_block(For(400, 0, 100, 100))
+    tryPy_manager.add_block(Break(500, 0, 100, 100))
+    tryPy_manager.add_block(Print(600, 0, 100, 100))
 
     # variable for main game loop + mouse drag handling
     running = True

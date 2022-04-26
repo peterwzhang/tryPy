@@ -8,7 +8,7 @@ class Block:
         self.y = y
         self.width = width
         self.height = height
-        self.color = RED
+        self.color = YELLOW
         self.rect = (x, y, width, height)
         self.text = "base"
 
@@ -26,20 +26,38 @@ class Block:
         self.rect = (self.x, self.y, self.width, self.height)
 
 
-class Conditional(Block):
-    def __init__(self, x, y, width, height):
-        super().__init__(x, y, width, height)
-        self.color = GREEN
-        self.text = "cond"
-
-class Loop(Block):
-    def __init__(self, x, y, width, height):
-        super().__init__(x, y, width, height)
-        self.color = BLUE
-        self.text = "loop"
-
 class Start(Block):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
-        self.color = YELLOW
+        self.color = GREEN
         self.text = "start"
+
+class If(Block):
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height)
+        self.color = PURPLE
+        self.text = "if"
+
+class While(Block):
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height)
+        self.color = BLUE
+        self.text = "while"
+
+class For(Block):
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height)
+        self.color = LIGHTBLUE
+        self.text = "for"
+
+class Break(Block):
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height)
+        self.color = RED
+        self.text = "break"
+
+class Print(Block):
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height)
+        self.color = ORANGE
+        self.text = "print"
