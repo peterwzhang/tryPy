@@ -1,0 +1,20 @@
+# for screen
+SCREEN_TITLE = "tryPy"
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
+# fonts
+TIMES_FONT = ("times", 10) # font, size
+
+# colors
+RED = (255,0,0)
+GREEN = (0,255,0)
+BLUE = (0,0,255)
+BLACK = (0,0,0)
+WHITE = (255,255,255)
+PURPLE = (255,0,255)
+YELLOW = (255,255,0)
+ORANGE = (255,165,0)
+CYAN = (0,255,255)
+LIGHTBLUE = (0,255,255)
+LIGHTGREEN = (0,255,0)
