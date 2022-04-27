@@ -26,17 +26,36 @@ class BlockManager:
             block.render(self.screen)
         pygame.display.update() # can optimize this to only update things that need to be updated
 
+    # this returns a list incase we want to make some sort of priority system later
     def check_block_collisions(self, x, y):
         # handle if multiple blocks on top of each other
+        collisions = []
         for block in self.blocks:
             if block.within_bounds(x, y):
-                return block
-        return None
+                collisions.append(block)
+        return collisions if len(collisions) > 0 else [None]
 
     def check_textBox_collisions(self, selectedBlock, x, y):
         if selectedBlock.within_textBox_bounds(x, y):
             return True
         return False
+
+    # this returns a list incase we want to make some sort of priority system later
+    def get_snap_collisions(self, selectedBlock):
+        if selectedBlock is None:
+            return []
+        snap_collisions = []
+        for block in self.blocks:
+            if block.within_bounds(*selectedBlock.get_center()) and block != selectedBlock:
+                snap_collisions.append(block)
+        return snap_collisions if len(snap_collisions) > 0 else [None]
+
+    def check_for_snap(self, selectedBlock):
+        if selectedBlock is None:
+            return
+        snap_candidates = self.get_snap_collisions(selectedBlock)
+        if snap_candidates[0] is not None:
+            selectedBlock.snap(snap_candidates[0])
 
 def setup_screen(title, x, y):
     pygame.init()   # initialize the pygame module
@@ -56,7 +75,7 @@ def main():
     tryPy_manager.add_block(For(400, 0, 100, 100))
     tryPy_manager.add_block(Break(500, 0, 100, 100))
     tryPy_manager.add_block(Print(600, 0, 100, 100))
-    
+
     # variable for main game loop + mouse drag handling
     running = True
     selectedBlock = None
@@ -69,12 +88,13 @@ def main():
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 dragging = True
-                selectedBlock = tryPy_manager.check_block_collisions(*event.pos)
-                if selectedBlock and selectedBlock.hasCondition():
+                selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
+                if selectedBlock and selectedBlock.has_condition():
                     isActiveTextBox = tryPy_manager.check_textBox_collisions(selectedBlock, *event.pos)
                 else:
                     isActiveTextBox = False
             elif event.type == pygame.MOUSEBUTTONUP:
+                tryPy_manager.check_for_snap(selectedBlock)
                 dragging = False
                 #selectedBlock = None
                 #isActiveTextBox= False

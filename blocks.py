@@ -10,14 +10,14 @@ class Block:
         self.height = height
         self.color = WHITE
         self.rect = (x, y, width, height)
-        self.text = "base"
-        self.hasCond = False
+        self.text = 'base'
+        self.has_cond = False
         self.next = None
 
     def render(self, surface):
         pygame.draw.rect(surface, self.color, self.rect)
         font = pygame.freetype.SysFont(*TIMES_FONT)
-        font.render_to(surface, (self.x, self.y), self.text, BLACK, size=self.width / 4)
+        font.render_to(surface, (self.x, self.y), self.text, BLACK, size=self.width // 4)
 
     def within_bounds(self, x, y):
         return self.x <= x <= self.x + self.width and self.y <= y <= self.y + self.height
@@ -27,15 +27,24 @@ class Block:
         self.y += y
         self.rect = (self.x, self.y, self.width, self.height)
 
-    def hasCondition(self): 
-        return self.hasCond
+    def has_condition(self): 
+        return self.has_cond
+
+    def get_center(self):
+        return (self.x + self.width // 2, self.y + self.height // 2)
+
+    def snap(self, other_block):
+        self.x = other_block.x + (other_block.width // 5) if isinstance(other_block, BlockWithCond) else other_block.x
+        self.y = other_block.y + other_block.height
+        self.rect = (self.x, self.y, self.width, self.height)
 
 class BlockWithCond(Block):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
-        self.hasCond = True
+        self.has_cond = True
         self.c_width = width - 10
         self.c_height = height // 3
+        # if you change the next 2 lines make sure to change this also in the snap function
         self.c_x = x + 5
         self.c_y = y + 25 #change from hardcoded to adaptive to font size
         self.c_color = WHITE
@@ -74,28 +83,31 @@ class BlockWithCond(Block):
         # this is top left of block
         return self.x, self.y
 
-    def get_center(self):
-        return self.x + self.width / 2, self.y + self.height / 2
-
+    def snap(self, other_block):
+        super().snap(other_block)
+        # update textbox
+        self.c_x = self.x + 5
+        self.c_y = self.y + 25
+        self.c_rect = (self.c_x, self.c_y, self.c_width, self.c_height)
 class Start(Block):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
         self.color = GREEN
-        self.text = "start"
+        self.text = 'start'
 
 class If(BlockWithCond):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
         self.color = PURPLE
         self.activeColor = LIGHTPURPLE
-        self.text = "if"
+        self.text = 'if'
 
 class While(BlockWithCond):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
         self.color = BLUE
         self.activeColor = LIGHTBLUE
-        self.text = "while"
+        self.text = 'while'
     
     # def render(self, surface):
     #     pygame.draw.rect(surface, self.color, self.rect)
@@ -108,16 +120,16 @@ class For(BlockWithCond):
         super().__init__(x, y, width, height)
         self.color = YELLOW
         self.activeColor = LIGHTYELLOW
-        self.text = "for"
+        self.text = 'for'
 
 class Break(Block):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
         self.color = RED
-        self.text = "break"
+        self.text = 'break'
 
 class Print(Block):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
         self.color = ORANGE
-        self.text = "print"
+        self.text = 'print'
