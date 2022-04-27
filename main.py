@@ -90,9 +90,11 @@ def main():
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 dragging = True
+                if selectedBlock and selectedBlock.has_condition(): 
+                    selectedBlock.disactivate_textBox()
                 selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
                 if selectedBlock and selectedBlock.has_condition():
-                    isActiveTextBox = tryPy_manager.check_textBox_collisions(selectedBlock, *event.pos)
+                    isActiveTextBox = tryPy_manager.check_textBox_collisions(selectedBlock, *event.pos) 
                 else:
                     isActiveTextBox = False
             elif event.type == pygame.MOUSEBUTTONUP:
@@ -103,7 +105,6 @@ def main():
             elif event.type == pygame.MOUSEMOTION:
                 if dragging:
                     selectedBlock.move(*event.rel)
-                    isActiveTextBox = False
             elif event.type == pygame.KEYDOWN:
                 if isActiveTextBox:
                     if event.key == pygame.K_BACKSPACE:

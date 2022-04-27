@@ -81,7 +81,6 @@ class BlockWithCond(Block):
             self.activeCond = True
             self.c_color = self.activeColor
             return True
-        #self.c_color = WHITE
         return False
 
     def backspace(self):
@@ -100,6 +99,10 @@ class BlockWithCond(Block):
         self.c_x = self.x + 5
         self.c_y = self.y + 25
         self.c_rect = (self.c_x, self.c_y, self.c_width, self.c_height)
+
+    def disactivate_textBox(self):
+        self.c_color = WHITE
+
 class Start(Block):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
