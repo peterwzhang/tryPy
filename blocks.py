@@ -1,16 +1,17 @@
+from multiprocessing import Condition
 import pygame
 from constants import *
 
 class Block:
-
     def __init__(self, x, y, width, height):
         self.x = x
         self.y = y
         self.width = width
         self.height = height
-        self.color = YELLOW
+        self.color = WHITE
         self.rect = (x, y, width, height)
         self.text = "base"
+        self.hasCond = False
 
     def render(self, surface):
         pygame.draw.rect(surface, self.color, self.rect)
@@ -25,6 +26,49 @@ class Block:
         self.y += y
         self.rect = (self.x, self.y, self.width, self.height)
 
+    def hasCondition(self): 
+        return self.hasCond
+
+class BlockWithCond(Block):
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height)
+        self.hasCond = True
+        self.c_width = width - 10
+        self.c_height = height // 3
+        self.c_x = x + 5
+        self.c_y = y + 25 #change from hardcoded to adaptive to font size
+        self.c_color = WHITE
+        self.c_rect = (self.c_x, self.c_y, self.c_width, self.c_height)
+        self.c_text = ''
+        self.activeCond = False
+        self.activeColor = WHITE
+    
+    def render(self, surface):
+        super().render(surface)
+        pygame.draw.rect(surface, self.c_color, self.c_rect)
+        font = pygame.freetype.SysFont(*TIMES_FONT)
+        font.render_to(surface, (self.c_x, self.c_y), self.c_text, BLACK, size=self.c_width // 4)
+
+    def move(self, x, y):
+        super().move(x, y)
+        self.c_x += x 
+        self.c_y += y
+        self.c_rect = (self.c_x, self.c_y, self.c_width, self.c_height)
+    
+    def within_textBox_bounds(self, x, y):
+        if self.c_x <= x <= self.c_x + self.c_width and self.c_y <= y <= self.c_y + self.c_height:
+            self.activeCond = True
+            self.c_color = self.activeColor
+            return True
+        #self.c_color = WHITE
+        return False
+
+    def backspace(self):
+        self.c_text = self.c_text[:-1]
+
+    def update_text(self, char):
+        self.c_text += char
+
 
 class Start(Block):
     def __init__(self, x, y, width, height):
@@ -32,22 +76,25 @@ class Start(Block):
         self.color = GREEN
         self.text = "start"
 
-class If(Block):
+class If(BlockWithCond):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
         self.color = PURPLE
+        self.activeColor = LIGHTPURPLE
         self.text = "if"
 
-class While(Block):
+class While(BlockWithCond):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
         self.color = BLUE
+        self.activeColor = LIGHTBLUE
         self.text = "while"
 
-class For(Block):
+class For(BlockWithCond):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
-        self.color = LIGHTBLUE
+        self.color = YELLOW
+        self.activeColor = LIGHTYELLOW
         self.text = "for"
 
 class Break(Block):
