@@ -33,14 +33,11 @@ class BlockManager:
                 return block
         return None
 
-<<<<<<< HEAD
     def check_textBox_collisions(self, selectedBlock, x, y):
         if selectedBlock.within_textBox_bounds(x, y):
             return True
         return False
 
-=======
->>>>>>> eee10296276304a6dab6668681fa452f1d97bbab
 def setup_screen(title, x, y):
     pygame.init()   # initialize the pygame module
     pygame.display.set_caption(title)
