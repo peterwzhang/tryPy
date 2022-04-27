@@ -12,6 +12,7 @@ class Block:
         self.rect = (x, y, width, height)
         self.text = "base"
         self.hasCond = False
+        self.next = None
 
     def render(self, surface):
         pygame.draw.rect(surface, self.color, self.rect)
@@ -69,6 +70,12 @@ class BlockWithCond(Block):
     def update_text(self, char):
         self.c_text += char
 
+    def get_pos(self):
+        # this is top left of block
+        return self.x, self.y
+
+    def get_center(self):
+        return self.x + self.width / 2, self.y + self.height / 2
 
 class Start(Block):
     def __init__(self, x, y, width, height):
@@ -89,6 +96,12 @@ class While(BlockWithCond):
         self.color = BLUE
         self.activeColor = LIGHTBLUE
         self.text = "while"
+    
+    # def render(self, surface):
+    #     pygame.draw.rect(surface, self.color, self.rect)
+    #     pygame.draw.rect(surface, WHITE, (self.x + (self.x * .2), self.y + (self.y * .2), self.width / 3, self.height / 5))
+    #     font = pygame.freetype.SysFont(*TIMES_FONT)
+    #     font.render_to(surface, (self.x, self.y), self.text, BLACK, size=self.width / 4)
 
 class For(BlockWithCond):
     def __init__(self, x, y, width, height):
