@@ -56,6 +56,8 @@ class BlockManager:
         snap_candidates = self.get_snap_collisions(selectedBlock)
         if snap_candidates[0] is not None:
             selectedBlock.snap(snap_candidates[0])
+        else:
+            selectedBlock.unsnap()
 
 def setup_screen(title, x, y):
     pygame.init()   # initialize the pygame module

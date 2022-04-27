@@ -12,6 +12,7 @@ class Block:
         self.rect = (x, y, width, height)
         self.text = 'base'
         self.has_cond = False
+        self.parent = None
         self.next = None
 
     def render(self, surface):
@@ -26,17 +27,27 @@ class Block:
         self.x += x
         self.y += y
         self.rect = (self.x, self.y, self.width, self.height)
+        if self.next is not None:
+            self.next.move(x, y)
 
-    def has_condition(self): 
+    def has_condition(self):
         return self.has_cond
 
     def get_center(self):
         return (self.x + self.width // 2, self.y + self.height // 2)
 
     def snap(self, other_block):
+        self.parent = other_block
+        other_block.next = self
         self.x = other_block.x + (other_block.width // 5) if isinstance(other_block, BlockWithCond) else other_block.x
         self.y = other_block.y + other_block.height
         self.rect = (self.x, self.y, self.width, self.height)
+
+    def unsnap(self):
+        if self.parent is not None:
+            self.parent.next = None
+        self.parent = None
+
 
 class BlockWithCond(Block):
     def __init__(self, x, y, width, height):
@@ -52,7 +63,7 @@ class BlockWithCond(Block):
         self.c_text = ''
         self.activeCond = False
         self.activeColor = WHITE
-    
+
     def render(self, surface):
         super().render(surface)
         pygame.draw.rect(surface, self.c_color, self.c_rect)
@@ -61,10 +72,10 @@ class BlockWithCond(Block):
 
     def move(self, x, y):
         super().move(x, y)
-        self.c_x += x 
+        self.c_x += x
         self.c_y += y
         self.c_rect = (self.c_x, self.c_y, self.c_width, self.c_height)
-    
+
     def within_textBox_bounds(self, x, y):
         if self.c_x <= x <= self.c_x + self.c_width and self.c_y <= y <= self.c_y + self.c_height:
             self.activeCond = True
@@ -108,7 +119,7 @@ class While(BlockWithCond):
         self.color = BLUE
         self.activeColor = LIGHTBLUE
         self.text = 'while'
-    
+
     # def render(self, surface):
     #     pygame.draw.rect(surface, self.color, self.rect)
     #     pygame.draw.rect(surface, WHITE, (self.x + (self.x * .2), self.y + (self.y * .2), self.width / 3, self.height / 5))
