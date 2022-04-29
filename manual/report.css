@@ -41,7 +41,7 @@ img {
   text-align: center;
   border: 2px solid #ccc;
   background-color: #eee;
-  border-radius: 1rem 1rem 0 0;
+  /* border-radius: 1rem 1rem 0 0; */
 }
 
 .tab a {
