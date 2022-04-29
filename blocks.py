@@ -165,8 +165,8 @@ class BlockSetVar(Block):
         # update textbox
         self.var_tb_x = self.x + 5
         self.var_tb_y = self.y + 10
-        self.val_tb_x =  self.var_tb_x
-        self.val_tb_y = self.y + 30
+        self.val_tb_x =  self.x + self.width - 5 - self.val_tb_width
+        self.val_tb_y = self.var_tb_y
         self.val_tb_rect = (self.val_tb_x, self.val_tb_y, self.val_tb_width, self.val_tb_height)
         self.var_tb_rect = (self.var_tb_x, self.var_tb_y, self.var_tb_width, self.var_tb_height)
 
