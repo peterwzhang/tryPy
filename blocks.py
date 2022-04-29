@@ -102,16 +102,17 @@ class BlockWithTextBox(Block):
 class BlockSetVar(Block): 
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
+        self.text = ''
         self.has_cond = True
         self.var_tb_width = width // 2 - 15
-        self.var_tb_height = height // 3
-        self.val_tb_width = width // 2 - 15
-        self.val_tb_height = height // 3
+        self.var_tb_height = height - 20
+        self.val_tb_width = self.var_tb_width
+        self.val_tb_height = self.var_tb_height
         # if you change the next 2 lines make sure to change this also in the snap function
         self.var_tb_x = x + 5
-        self.var_tb_y = y + 30 #change from hardcoded to adaptive to font size
+        self.var_tb_y = y + 10 #change from hardcoded to adaptive to font size
         self.val_tb_x = self.x + self.width - 5 - self.val_tb_width
-        self.val_tb_y = y + 30 #change from hardcoded to adaptive to font size
+        self.val_tb_y = self.var_tb_y
         self.var_tb_color = WHITE
         self.val_tb_color = WHITE
         self.var_tb_rect = (self.var_tb_x, self.var_tb_y, self.var_tb_width, self.var_tb_height)
@@ -129,7 +130,7 @@ class BlockSetVar(Block):
         font = pygame.freetype.SysFont(*TIMES_FONT)
         font.render_to(surface, (self.var_tb_x + 5, self.var_tb_y + 5), self.var_tb_text, BLACK, size=self.var_tb_width // 3)
         font.render_to(surface, (self.val_tb_x + 5, self.val_tb_y + 5), self.val_tb_text, BLACK, size=self.val_tb_width // 3)
-        font.render_to(surface, ((self.x + self.width//2 - (self.var_tb_width // 3)//2), (self.var_tb_y + 5)), "=", BLACK, size=self.var_tb_width // 2)
+        font.render_to(surface, ((self.x + self.width//2 - (self.var_tb_width // 3)//2), (self.y + self.height//2 - 2)), "=", BLACK, size=self.var_tb_width // 2)
 
     def move(self, x, y):
         super().move(x, y)
@@ -162,10 +163,12 @@ class BlockSetVar(Block):
     def snap(self, other_block):
         super().snap(other_block)
         # update textbox
-        self.tb_x = self.x + 5
-        self.tb_y = self.y + 30
-        self.tb_rect = (self.var_tb_x, self.var_tb_y, self.var_tb_width, self.var_tb_height)
-        self.tb_rect = (self.val_tb_x, self.val_tb_y, self.val_tb_width, self.val_tb_height)
+        self.var_tb_x = self.x + 5
+        self.var_tb_y = self.y + 10
+        self.val_tb_x =  self.var_tb_x
+        self.val_tb_y = self.y + 30
+        self.val_tb_rect = (self.val_tb_x, self.val_tb_y, self.val_tb_width, self.val_tb_height)
+        self.var_tb_rect = (self.var_tb_x, self.var_tb_y, self.var_tb_width, self.var_tb_height)
 
     def disactivate_textBox(self):
         if self.var_activeCond: 
@@ -188,12 +191,20 @@ class If(BlockWithTextBox):
         self.activeColor = LIGHTPURPLE
         self.text = 'if'
 
+class Else(BlockWithTextBox):
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height)
+        self.color = LIGHTPURPLE
+        self.activeColor = LIGHTERPURPLE
+        self.text = "else"
+
 class While(BlockWithTextBox):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
         self.color = BLUE
         self.activeColor = LIGHTBLUE
         self.text = 'while'
+
 class For(BlockWithTextBox):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
@@ -207,10 +218,11 @@ class Break(Block):
         self.color = RED
         self.text = 'break'
 
-class Print(Block):
+class Print(BlockWithTextBox):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height)
         self.color = ORANGE
+        self.activeColor = LIGHTORANGE
         self.text = 'print'
 
 class Var(BlockSetVar):
@@ -218,11 +230,4 @@ class Var(BlockSetVar):
         super().__init__(x, y, width, height)
         self.color = BROWN
         self.activeColor = LIGHTBROWN
-        self.text = 'var'
 
-class Set(BlockSetVar):
-    def __init__(self, x, y, width, height):
-        super().__init__(x, y, width, height)
-        self.color = BROWN
-        self.activeColor = LIGHTBROWN
-        self.text = ''
