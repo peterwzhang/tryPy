@@ -1,8 +1,10 @@
 # import the pygame module, so you can use it
 import pygame
 import pygame.freetype
+import copy
 from blocks import *
 from constants import *
+
 
 def get_mouse_pos():
     return pygame.mouse.get_pos()
@@ -12,6 +14,7 @@ class BlockManager:
         self.blocks = []
         self.main_blocks = []
         self.screen = screen
+        self.ghost = None
 
     def add_block(self, block):
         self.blocks.append(block)
@@ -59,6 +62,25 @@ class BlockManager:
         else:
             selectedBlock.unsnap()
 
+    # recursively identifies what block is at pos, children have priority
+    def identify_block(self, pos, blocks = None):
+        if blocks == None: blocks = self.global_blocks
+        for block in blocks:
+            children = block.children[:]
+            if isinstance(block, block_defs.SlotBlock):
+                children.extend(list(block.slots.values())[:])
+            ret = self.identify_block(pos, children)
+            if ret: return ret
+            if shared.check_collision(block.pos, block.size, pos): return block
+
+    # clones target block and begins placing
+    def clone(self, target):
+        if target != None and not self.placing:
+            self.ghost = copy.deepcopy(target)
+            self.ghost.opacity = 128
+            self.placing = True
+
+
 def setup_screen(title, x, y):
     pygame.init()   # initialize the pygame module
     pygame.display.set_caption(title)
@@ -71,12 +93,15 @@ def main():
     tryPy_manager = BlockManager(screen)
 
     tryPy_manager.add_block(Block(0, 0, 100, 100))
-    tryPy_manager.add_block(Start(100, 0, 100, 100))
-    tryPy_manager.add_block(If(200, 0, 100, 100))
-    tryPy_manager.add_block(While(300, 0, 100, 100))
-    tryPy_manager.add_block(For(400, 0, 100, 100))
-    tryPy_manager.add_block(Break(500, 0, 100, 100))
-    tryPy_manager.add_block(Print(600, 0, 100, 100))
+    tryPy_manager.add_block(Start(0, 100, 100, 100))
+    tryPy_manager.add_block(If(0, 200, 100, 100))
+    tryPy_manager.add_block(While(0, 300, 100, 100))
+    tryPy_manager.add_block(For(0, 400, 100, 100))
+    tryPy_manager.add_block(Break(0, 500, 100, 100))
+    tryPy_manager.add_block(Print(0, 600, 100, 100))
+
+    tryPy_manager.add_block(Var(0, 700, 100, 50))
+    tryPy_manager.add_block(Set(0, 750, 100, 50))
 
     # variable for main game loop + mouse drag handling
     running = True
@@ -105,6 +130,9 @@ def main():
             elif event.type == pygame.MOUSEMOTION:
                 if dragging:
                     selectedBlock.move(*event.rel)
+                    c2 = selectedBlock.__class__
+                    c2(0, 0, 100, 100)
+                    #tryPy_manager.clone(target)
             elif event.type == pygame.KEYDOWN:
                 if isActiveTextBox:
                     if event.key == pygame.K_BACKSPACE:
