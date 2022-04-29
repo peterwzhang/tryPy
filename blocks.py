@@ -18,7 +18,7 @@ class Block:
     def render(self, surface):
         pygame.draw.rect(surface, self.color, self.rect)
         font = pygame.freetype.SysFont(*TIMES_FONT)
-        font.render_to(surface, (self.x + 5, self.y + 5), self.text, BLACK, size=self.width // 4)
+        font.render_to(surface, (self.x + 5, self.y + 5), self.text, BLACK, size=20)
 
     def within_bounds(self, x, y):
         return self.x <= x <= self.x + self.width and self.y <= y <= self.y + self.height
@@ -68,7 +68,7 @@ class BlockWithTextBox(Block):
         super().render(surface)
         pygame.draw.rect(surface, self.tb_color, self.tb_rect)
         font = pygame.freetype.SysFont(*TIMES_FONT)
-        font.render_to(surface, (self.tb_x + 5, self.tb_y + 5), self.tb_text, BLACK, size=self.tb_width // 4)
+        font.render_to(surface, (self.tb_x + 5, self.tb_y + 5), self.tb_text, BLACK, size=20)
 
     def move(self, x, y):
         super().move(x, y)
@@ -128,9 +128,9 @@ class BlockSetVar(Block):
         pygame.draw.rect(surface, self.var_tb_color, self.var_tb_rect)
         pygame.draw.rect(surface, self.val_tb_color, self.val_tb_rect)
         font = pygame.freetype.SysFont(*TIMES_FONT)
-        font.render_to(surface, (self.var_tb_x + 5, self.var_tb_y + 5), self.var_tb_text, BLACK, size=self.var_tb_width // 3)
-        font.render_to(surface, (self.val_tb_x + 5, self.val_tb_y + 5), self.val_tb_text, BLACK, size=self.val_tb_width // 3)
-        font.render_to(surface, ((self.x + self.width//2 - (self.var_tb_width // 3)//2), (self.y + self.height//2 - 2)), "=", BLACK, size=self.var_tb_width // 2)
+        font.render_to(surface, (self.var_tb_x + 5, self.var_tb_y + 5), self.var_tb_text, BLACK, size=20)
+        font.render_to(surface, (self.val_tb_x + 5, self.val_tb_y + 5), self.val_tb_text, BLACK, size=20)
+        font.render_to(surface, ((self.x + self.width//2 - 5), (self.y + self.height//2 - 2)), "=", BLACK, size=20)
 
     def move(self, x, y):
         super().move(x, y)
@@ -165,8 +165,8 @@ class BlockSetVar(Block):
         # update textbox
         self.var_tb_x = self.x + 5
         self.var_tb_y = self.y + 10
-        self.val_tb_x =  self.var_tb_x
-        self.val_tb_y = self.y + 30
+        self.val_tb_x =  self.x + self.width - 5 - self.val_tb_width
+        self.val_tb_y = self.var_tb_y
         self.val_tb_rect = (self.val_tb_x, self.val_tb_y, self.val_tb_width, self.val_tb_height)
         self.var_tb_rect = (self.var_tb_x, self.var_tb_y, self.var_tb_width, self.var_tb_height)
 
