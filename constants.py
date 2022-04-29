@@ -2,7 +2,7 @@ import pygame
 # for screen
 SCREEN_TITLE = "tryPy"
 SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 1000
+SCREEN_HEIGHT = 800
 
 # fonts
 TIMES_FONT = ("times", 10) # font, size
