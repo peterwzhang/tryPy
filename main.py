@@ -93,7 +93,7 @@ def main():
     tryPy_manager = BlockManager(screen)
 
     tryPy_manager.add_block(Start(0, 0, 200, 50))
-    for i in range(5):
+    for i in range(6):
         #tryPy_manager.add_block(Block(0, 0, 100, 100))
         tryPy_manager.add_block(If(0, 50, 200, 75))
         tryPy_manager.add_block(Else(0, 125, 200, 75))

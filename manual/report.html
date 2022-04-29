@@ -270,6 +270,23 @@
                     <h4>Examples</h4>
                 </div>
                 <div class="divider"></div>
+                <div class="section">
+                    <p>Task: check if each digit in an integer is increasing or staying the same. If there is any decreasing, print "at least one decrease". Otherwise print "all increasing".
+                    <p>x=123456789</p>
+                    <p>last=x%10</p>
+                    <p>while x!=0:</p>
+                    <p style="text-indent: 40px">next=x%10</p>
+                    <p style="text-indent: 40px">if next>last:</p>
+                    <p style="text-indent: 80px">print("at least one decrease")</p>
+                    <p style="text-indent: 80px">break</p>
+                    <p style="text-indent: 40px">last=next</p>
+                    <p style="text-indent: 40px">x//=10</p>
+                    <p>if x==0:</p>
+                    <p style="text-indent: 40px">print("all increasing or staying the same")</p>
+                </div> 
+                <div>
+                    <img id="ex-1" src="./pictures/ex1.png" width="800"/>
+                </div>
                 <p></p>
             </div>
             <!-- Implementation -->
