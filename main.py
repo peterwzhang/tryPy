@@ -92,16 +92,16 @@ def main():
     screen = setup_screen(SCREEN_TITLE, SCREEN_WIDTH, SCREEN_HEIGHT)
     tryPy_manager = BlockManager(screen)
 
-    tryPy_manager.add_block(Start(0, 0, 100, 50))
+    tryPy_manager.add_block(Start(0, 0, 200, 50))
     for i in range(5):
         #tryPy_manager.add_block(Block(0, 0, 100, 100))
-        tryPy_manager.add_block(If(0, 50, 100, 75))
-        tryPy_manager.add_block(Else(0, 125, 100, 75))
-        tryPy_manager.add_block(While(0, 200, 100, 75))
-        tryPy_manager.add_block(For(0, 275, 100, 75))
-        tryPy_manager.add_block(Print(0, 350, 100, 75))
-        tryPy_manager.add_block(Var(0, 425, 100, 50))
-        tryPy_manager.add_block(Break(0, 475, 100, 50))
+        tryPy_manager.add_block(If(0, 50, 200, 75))
+        tryPy_manager.add_block(Else(0, 125, 200, 75))
+        tryPy_manager.add_block(While(0, 200, 200, 75))
+        tryPy_manager.add_block(For(0, 275, 200, 75))
+        tryPy_manager.add_block(Print(0, 350, 200, 75))
+        tryPy_manager.add_block(Var(0, 425, 200, 50))
+        tryPy_manager.add_block(Break(0, 475, 200, 50))
 
     # variable for main game loop + mouse drag handling
     running = True
