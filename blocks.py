@@ -104,12 +104,7 @@ class TextBox(Block):
 class BlockWithTextBox(Block):
     def __init__(self, x, y, width, height, color, text, active_color):
         super().__init__(x, y, width, height, color, text)
-        # if you change the next 2 lines make sure to change this also in the snap function
-        self.tb_x = self.get_tb_x()
-        self.tb_y = self.get_tb_y()
-        self.tb_width = width - TIMES_FONT[1]
-        self.tb_height = height // 3
-        self.tb = TextBox(self.tb_x, self.tb_y, self.tb_width, self.tb_height, active_color)
+        self.tb = TextBox(self.get_tb_x(), self.get_tb_y(), self.get_tb_width(), self.get_tb_height(), active_color)
         self.has_tb = True
 
     def render(self, surface):
@@ -140,6 +135,12 @@ class BlockWithTextBox(Block):
 
     def get_tb_y(self): return self.y + TIMES_FONT[1]*3
 
+    def get_tb_width(self): return self.width - TIMES_FONT[1]
+
+    def get_tb_height(self): return self.height // 3
+
+
+
 
 class Start(Block):
     def __init__(self, x, y, width, height):
@@ -149,9 +150,9 @@ class If(BlockWithTextBox):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height, PURPLE, 'if', LIGHTPURPLE)
 
-class Else(BlockWithTextBox):
+class Else(Block):
     def __init__(self, x, y, width, height):
-        super().__init__(x, y, width, height, LIGHTPURPLE, 'else', LIGHTERPURPLE)
+        super().__init__(x, y, width, height, LIGHTPURPLE, 'else')
 
 class While(BlockWithTextBox):
     def __init__(self, x, y, width, height):

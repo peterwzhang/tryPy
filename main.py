@@ -80,10 +80,10 @@ class BlockManager:
                 selectedBlock.snap(snap_candidates[0])
             if not isinstance(selectedBlock, Start) and isinstance(selectedBlock.greatest_parent(), Start):
                 self.main_blocks.append(selectedBlock)
-        # else:
-        #     if not isinstance(selectedBlock, Start) and isinstance(selectedBlock.greatest_parent(), Start):
-        #         self.main_blocks.remove(selectedBlock)
-        #     selectedBlock.unsnap()
+        else:
+            if not isinstance(selectedBlock, Start) and isinstance(selectedBlock.greatest_parent(), Start):
+                self.main_blocks.remove(selectedBlock)
+            selectedBlock.unsnap()
 
     def reset(self):
         self.blocks = []
@@ -138,9 +138,9 @@ def main():
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 dragging = True
-                selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
                 if selectedBlock and selectedBlock.has_textbox(): 
                     selectedBlock.deactivate_textbox()
+                selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
                 if selectedBlock and selectedBlock.has_textbox():
                     isActiveTextBox = tryPy_manager.check_textbox_collisions(selectedBlock, *event.pos) 
                 else:
