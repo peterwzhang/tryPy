@@ -65,6 +65,8 @@ class BlockManager:
         for block in self.blocks:
             if block.within_bounds(*selectedBlock.get_center()) and block != selectedBlock:
                 snap_collisions.append(block)
+            if block.within_bounds(*selectedBlock.get_left()) and block != selectedBlock:
+                snap_collisions.append(block)
         return snap_collisions if len(snap_collisions) > 0 else [None]
 
     def check_for_snap(self, selectedBlock):
@@ -72,7 +74,10 @@ class BlockManager:
             return
         snap_candidates = self.get_snap_collisions(selectedBlock)
         if snap_candidates[0] is not None:
-            selectedBlock.snap(snap_candidates[0])
+            if selectedBlock.within_bounds(*snap_candidates[0].get_left()):
+                selectedBlock.unindent_snap(snap_candidates[0])
+            else:
+                selectedBlock.snap(snap_candidates[0])
             if not isinstance(selectedBlock, Start) and isinstance(selectedBlock.greatest_parent(), Start):
                 self.main_blocks.append(selectedBlock)
         # else:
@@ -134,9 +139,6 @@ def main():
             elif event.type == pygame.MOUSEBUTTONUP:
                 tryPy_manager.check_for_snap(selectedBlock)
                 dragging = False
-                #selectedBlock = None
-                #isActiveTextBox= False
-                print(tryPy_manager.main_blocks)
             elif event.type == pygame.MOUSEMOTION:
                 if selectedBlock and dragging:
                     selectedBlock.move(*event.rel)
