@@ -80,17 +80,6 @@ class BlockManager:
                 self.main_blocks.remove(selectedBlock)
             selectedBlock.unsnap()
 
-    # recursively identifies what block is at pos, children have priority
-    def identify_block(self, pos, blocks = None):
-        if blocks == None: blocks = self.global_blocks
-        for block in blocks:
-            children = block.children[:]
-            if isinstance(block, block_defs.SlotBlock):
-                children.extend(list(block.slots.values())[:])
-            ret = self.identify_block(pos, children)
-            if ret: return ret
-            if shared.check_collision(block.pos, block.size, pos): return block
-
     # clones target block and begins placing
     def clone(self, target):
         if target != None and not self.placing:
