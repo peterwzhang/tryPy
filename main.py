@@ -137,11 +137,11 @@ def main():
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 dragging = True
-                if selectedBlock and selectedBlock.has_textbox(): 
+                if selectedBlock and selectedBlock.has_textbox():
                     selectedBlock.deactivate_textbox()
                 selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
                 if selectedBlock and selectedBlock.has_textbox():
-                    isActiveTextBox = tryPy_manager.check_textbox_collisions(selectedBlock, *event.pos) 
+                    isActiveTextBox = tryPy_manager.check_textbox_collisions(selectedBlock, *event.pos)
                 else:
                     isActiveTextBox = False
             elif event.type == pygame.MOUSEBUTTONUP:
@@ -156,11 +156,11 @@ def main():
                         selectedBlock.backspace()
                     else:
                         selectedBlock.update_text(event.unicode)
-                if event.key == pygame.K_s:
+                elif event.key == pygame.K_s:
                     tryPy_manager.run_blocks()
-                if event.key == pygame.K_r:
+                elif event.key == pygame.K_r:
                     tryPy_manager.reset()
-                    
+
             # clock.tick() # for showing fps
             # print(clock.get_fps())
             tryPy_manager.render_blocks()
