@@ -67,7 +67,7 @@
                                     <a href="mailto:cacannarozzi@crimson.ua.edu">cacannarozzi@crimson.ua.edu</a>
                                 </td>
                                 <!-- UPDATE TIME TRACKING HERE -->
-                                <td>10 hours</td>
+                                <td>21 hours</td>
                             </tr>
                             <tr>
                                 <td>Madeline Moore</td>
@@ -76,7 +76,7 @@
                                     <a href="mailto:mcmoore11@crimson.ua.edu">mcmoore11@crimson.ua.edu</a>
                                 </td>
                                 <!-- UPDATE TIME TRACKING HERE -->
-                                <td>10 hours</td>
+                                <td>21 hours</td>
                             </tr>
                             <tr>
                                 <td>Peter Zhang</td>
@@ -85,7 +85,7 @@
                                     <a href="mailto:pwzhang@crimson.ua.edu">pwzhang@crimson.ua.edu</a>
                                 </td>
                                 <!-- UPDATE TIME TRACKING HERE -->
-                                <td>10 hours</td>
+                                <td>22 hours</td>
                             </tr>
                         </tbody>
                     </table>
@@ -182,27 +182,52 @@
                     forward. We aim to improve the user experience of tryPy in addition to the functionality of it.
                 </p>
                 <p>
-                    Some of the user experience improvements we would like to implement in the future include:
+                    Some of the user experience/quality of life improvements we would like to implement in the future
+                    include:
                 <ul>
-                    <li>A customizable user interface that would allow users to have a layout that works best for them
+                    <li>A customizable user interface that would allow users to have a layout that works best for them,
+                        some of these customizations include: customizable font, font size, block size, and the
+                        positioning of starting blocks
                     </li>
                     <li>Changes to the user interface that would make tryPy more visually appealing, especially to
                         children</li>
+                    <li>Copy and pasting blocks</li>
+                    <li>A way to save, load, and share projects</li>
+                    <li>Color blind modes</li>
+                    <li>Optimizations to rendering to improve battery usage while using tryPy</li>
+                    <li>Allowing the snap ranges of blocks to be changed based on the user's liking</li>
+                    <li>Snapping sound effect for when blocks are snapped</li>
+                </ul>
+                </p>
+                <p>
+                    Some of the functional improvements and functionality we would like to implement in the future
+                    include:
+                <ul>
+                    <li>Allowing tryPy to better handle strings and string manipulation (blocks for string methods)</li>
+                    <li>Allowing tryPy to better handle lists (blocks for list methods)</li>
+                    <li>Adding blocks for function which in turn allows recursion and other functional features of the
+                        language</li>
+                    <li>Overall growth in complexity of what tryPy can handle</li>
                     <li>An instructional guide appearing on start with an option to participate in a walkthrough
                         tutorial showing the features of tryPy</li>
                     <li>Two modes: one where there are various challenges and you must complete one challenge to pass to
                         the next, and one for a tryPy "playground" where the user is able to code freely</li>
                     <li>In the challenge mode, set goals such as lines of code or iterations through a loop used to
                         complete a challenge and allow for the user to request hints</li>
+                    <li>Adding a block generator rather than just having a hardcoded amount of blocks</li>
+                    <li>A way to view the output of code in the user interface, right now it is printed to the python
+                        console</li>
+                    <li>A way to transform blocks to actual code in the user interface, right now it can be transformed
+                        but only viewed in the terminal</li>
                 </ul>
                 </p>
                 <p>
-                    Some of the functional improvements we would like to implement in the future include:
+                    Some bugs/problems we would like to fix in the future include:
                 <ul>
-                    <li>Allowing tryPy to handle strings and string manipulation</li>
-                    <li>Allowing tryPy to handle lists</li>
-                    <li>Allowing tryPy to handle functions and recursion</li>
-                    <li>Overall growth in complexity of what tryPy can handle</li>
+                    <li>Nested snapping can break blocks in some cases, needs more investigation</li>
+                    <li>Blocks can get disconnected from start when a large amount of blocks are added (band-aid fix by
+                        disabling block disconnection)</li>
+                    <li>Errors from bad block syntax are not handled right now</li>
                 </ul>
                 </p>
             </div>
@@ -387,7 +412,7 @@
                         <td><img id="res-6" src="./pictures/res6.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 7<br>task: print the absoulute value of a number</td>
+                        <td>example 7<br>task: print the absolute value of a number</td>
                         <td><img id="ex-7-pycode" src="./pictures/ex7_pycode.png" /></td>
                         <td>tryPy code</td>
                         <td><img id="res-7" src="./pictures/res7.png" /></td>
@@ -591,7 +616,7 @@
                     <p style="text-indent: 40px">print("all increasing or staying the same")</p>
                 </div>
                 <div>
-                    <img id="ex-1" src="./pictures/ex1.png" width="800" />
+                    <img id="example-1" src="./pictures/ex1.png" width="800" />
                 </div>
                 <p>You can see more examples in the <a href="javascript:tabSelect('part5')">Examples tab</a></p>
                 <p></p>
