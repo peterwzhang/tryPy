@@ -54,6 +54,16 @@ class Block:
             self.parent.next = None
         self.parent = None
 
+    def tokenize(self):
+        if isinstance(self, Var):
+            return [self.tb.text, '=', self.tb2.text]
+        if isinstance(self, Print):
+            return ['print', '(', self.tb.text, ')']
+        elif isinstance(self, BlockWithTextBox):
+            return [self.text, self.tb.text, ':']
+        else:
+            return [self.text]
+
 
 class TextBox(Block):
     def __init__(self, x, y, width, height, active_color):
