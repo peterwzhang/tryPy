@@ -80,10 +80,10 @@ class BlockManager:
                 selectedBlock.snap(snap_candidates[0])
             if not isinstance(selectedBlock, Start) and isinstance(selectedBlock.greatest_parent(), Start):
                 self.main_blocks.append(selectedBlock)
-        # else:
-        #     if not isinstance(selectedBlock, Start) and isinstance(selectedBlock.greatest_parent(), Start):
-        #         self.main_blocks.remove(selectedBlock)
-        #     selectedBlock.unsnap()
+        else:
+            if not isinstance(selectedBlock, Start) and isinstance(selectedBlock.greatest_parent(), Start):
+                self.main_blocks.remove(selectedBlock)
+            selectedBlock.unsnap()
 
     # clones target block and begins placing
     def clone(self, target):
@@ -129,9 +129,9 @@ def main():
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 dragging = True
-                selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
                 if selectedBlock and selectedBlock.has_textbox(): 
                     selectedBlock.deactivate_textbox()
+                selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
                 if selectedBlock and selectedBlock.has_textbox():
                     isActiveTextBox = tryPy_manager.check_textbox_collisions(selectedBlock, *event.pos) 
                 else:
@@ -148,18 +148,6 @@ def main():
                         selectedBlock.backspace()
                     else:
                         selectedBlock.update_text(event.unicode)
-                if event.key == pygame.K_r:
-                    code = ''
-                    for block in tryPy_manager.main_blocks:
-                        if (block.x > tryPy_manager.blocks[0].x):
-                            #print('\t' + ' '.join(block.tokenize()))
-                            code += '\t' + ' '.join(block.tokenize()) + '\n'
-                        else:
-                            #print(' '.join(block.tokenize()))
-                            code += ' '.join(block.tokenize()) + '\n'
-                    code_obj = compile(code, 'blocks', 'exec')
-                    print('CODE OUTPUT:')
-                    exec(code_obj)
             # clock.tick() # for showing fps
             # print(clock.get_fps())
             tryPy_manager.render_blocks()
