@@ -107,15 +107,15 @@ def setup_screen(title, x, y):
     return screen
 
 def init_blocks(manager):
-    manager.add_block(Start(0, 0, 300, 50))
+    manager.add_block(Start(0, 0, BLOCK_WIDTH, 50))
     for i in range(6):
-        manager.add_block(If(0, 50, 300, 75))
-        manager.add_block(Else(0, 125, 300, 50))
-        manager.add_block(While(0, 175, 300, 75))
-        manager.add_block(For(0, 250, 300, 75))
-        manager.add_block(Print(0, 325, 300, 75))
-        manager.add_block(Var(0, 400, 300, 50))
-        manager.add_block(Break(0, 450, 300, 50))
+        manager.add_block(If(0, 50, BLOCK_WIDTH, 75))
+        manager.add_block(Else(0, 125, BLOCK_WIDTH, 50))
+        manager.add_block(While(0, 175, BLOCK_WIDTH, 75))
+        manager.add_block(For(0, 250, BLOCK_WIDTH, 75))
+        manager.add_block(Print(0, 325, BLOCK_WIDTH, 75))
+        manager.add_block(Var(0, 400, BLOCK_WIDTH, 50))
+        manager.add_block(Break(0, 450, BLOCK_WIDTH, 50))
 
 # define a main function
 def main():
