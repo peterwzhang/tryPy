@@ -158,23 +158,6 @@ while x!=0:
         x//=10
 print()
 
-# example 18
-# task: find the median of three numbers
-a=12
-b=14
-c=13
-if (a<b and a>c) or (a>b and a<c):
-    print(a)
-elif (b<a and b>c) or (b>a and b<c):
-    print(b)
-elif (c<a and c>b) or (c>a and c<b):
-    print(c)
-elif (a==b or a==c):
-    print(a)
-elif (b==c):
-    print(b)
-print()
-
 # example 19
 # task: count the number of times a specified digit appears in an integer
 key=2
@@ -209,22 +192,6 @@ while x!=0:
 diff=last-first
 if diff<0:
     diff=0-diff
-print(diff)
-print()
-
-# example 22
-# task: print the absolute value of the difference between the smallest digit and largest digit of an integer
-x=1239994823653
-large=x%10
-small=x%10
-while x!=0:
-    dig=x%10
-    if dig>large:
-        large=dig
-    if dig<small:
-        small=dig
-    x//=10
-diff=large-small
 print(diff)
 print()
 
