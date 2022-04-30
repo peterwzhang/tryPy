@@ -150,9 +150,9 @@ class If(BlockWithTextBox):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height, PURPLE, 'if', LIGHTPURPLE)
 
-class Else(BlockWithTextBox):
+class Else(Block):
     def __init__(self, x, y, width, height):
-        super().__init__(x, y, width, height, LIGHTPURPLE, 'else', LIGHTERPURPLE)
+        super().__init__(x, y, width, height, LIGHTPURPLE, 'else')
 
 class While(BlockWithTextBox):
     def __init__(self, x, y, width, height):
