@@ -130,12 +130,6 @@ print(2.54*inch)
 print()
 
 # example 15
-# task: convert a temperature in F to C
-tempF=72
-print((tempF-32)*5/9)
-print()
-
-# example 16
 # task: check if all digits of an integer are the same (print "all the same" if they are, "at least one difference" if not)
 x=6663666
 val=x%10
@@ -148,7 +142,7 @@ if x==0:
     print("all the same")
 print()
 
-# example 17
+# example 16
 # task: remove and print every third digit from an integer (start from end, move to beginning)
 x=123456789
 while x!=0:
@@ -158,7 +152,7 @@ while x!=0:
         x//=10
 print()
 
-# example 19
+# example 17
 # task: count the number of times a specified digit appears in an integer
 key=2
 num=98765432123456789
@@ -170,7 +164,7 @@ while num!=0:
 print(count)
 print()
 
-# example 20
+# example 18
 # task: check if three lengths form a valid triangle (print "could be a triangle" if yes, "no triangle here" if no)
 a=1
 b=1
@@ -182,7 +176,7 @@ else:
 print()
 
 
-# example 21
+# example 19
 # task: print the absolute value of the difference between the first digit and last digit of an integer
 x=68342986
 last=x%10
@@ -195,7 +189,7 @@ if diff<0:
 print(diff)
 print()
 
-# example 23
+# example 20
 # task: from two integers, print the sum of all values between the two numbers (not inclusive)
 x=2
 y=6
@@ -205,7 +199,7 @@ for i in range(x+1, y):
 print(sum)
 print()
 
-# example 24
+# example 21
 # task: check if each digit in an integer is increasing or staying the same
 # if there is any decreasing, print "at least one decrease found". otherwise print "all increasing or staying the same"
 x=123456789
@@ -221,7 +215,7 @@ if x==0:
     print("all increasing or staying the same")
 print()
 
-# example 25
+# example 22
 # task: print the sum of all squares of all digits in an integer (ex. 123=1^2+2^2+3^2=14)
 x=12301
 sum=0
