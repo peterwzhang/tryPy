@@ -139,9 +139,6 @@ def main():
             elif event.type == pygame.MOUSEBUTTONUP:
                 tryPy_manager.check_for_snap(selectedBlock)
                 dragging = False
-                #selectedBlock = None
-                #isActiveTextBox= False
-                #print(tryPy_manager.main_blocks)
             elif event.type == pygame.MOUSEMOTION:
                 if selectedBlock and dragging:
                     selectedBlock.move(*event.rel)

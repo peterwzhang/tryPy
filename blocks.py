@@ -85,6 +85,12 @@ class TextBox(Block):
     def update_text(self, char):
         self.text += char
 
+    def reset_x_y(self, x, y):
+        self.x = x
+        self.y = y
+        self.rect = (self.x, self.y, self.width, self.height)
+
+
 class BlockWithTextBox(Block):
     def __init__(self, x, y, width, height, color, text, active_color):
         super().__init__(x, y, width, height, color, text)
@@ -98,6 +104,7 @@ class BlockWithTextBox(Block):
 
     def render(self, surface):
         super().render(surface)
+        self.tb.reset_x_y(self.get_tb_x(), self.get_tb_y())
         self.tb.render(surface)
 
     def move(self, x, y):
@@ -115,12 +122,6 @@ class BlockWithTextBox(Block):
 
     def update_text(self, char):
         self.tb.update_text(char)
-
-    def snap(self, other_block):
-        super().snap(other_block)
-        self.tb.x = self.get_tb_x()
-        self.tb.y = self.get_tb_y()
-        self.tb.rect = (self.tb.x, self.tb.y, self.tb.width, self.tb.height)
 
     def deactivate_textbox(self):
         self.tb.deactivate()
@@ -167,6 +168,7 @@ class Var(BlockWithTextBox):
 
     def render(self, surface):
         super().render(surface)
+        self.tb2.reset_x_y(self.get_tb2_x(), self.get_tb_y())
         self.tb2.render(surface)
         font = pygame.freetype.SysFont(*TIMES_FONT)
         font.render_to(surface, ((self.x + self.width//2 - TIMES_FONT[1]//2), (self.y + self.height//2 - 2)), "=", BLACK, size=20)
@@ -191,16 +193,6 @@ class Var(BlockWithTextBox):
     def update_text(self, char):
         if self.tb.is_active: self.tb.update_text(char)
         elif self.tb2.is_active: self.tb2.update_text(char)
-
-    def snap(self, other_block):
-        super().snap(other_block)
-        self.tb.x = self.get_tb_x()
-        self.tb.y = self.get_tb_y()
-        self.tb.rect = (self.tb.x, self.tb.y, self.tb.width, self.tb.height)
-
-        self.tb2.x = self.get_tb2_x()
-        self.tb2.y = self.get_tb_y()
-        self.tb2.rect = (self.tb2.x, self.tb2.y, self.tb2.width, self.tb2.height)
 
     def deactivate_textbox(self):
         if self.tb.is_active: self.tb.deactivate()
