@@ -45,7 +45,7 @@ class Block:
     def snap(self, other_block):
         self.parent = other_block
         other_block.next = self
-        self.x = other_block.x + (other_block.width // (TIMES_FONT[1]//2)) if isinstance(other_block, BlockWithTextBox) else other_block.x
+        self.x = other_block.x + (other_block.width // (TIMES_FONT[1]//2)) if isinstance(other_block, (If, Else, While, For)) else other_block.x
         self.y = other_block.y + other_block.height
         self.rect = (self.x, self.y, self.width, self.height)
 
