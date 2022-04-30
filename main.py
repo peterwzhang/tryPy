@@ -38,8 +38,8 @@ class BlockManager:
                 collisions.append(block)
         return collisions if len(collisions) > 0 else [None]
 
-    def check_textBox_collisions(self, selectedBlock, x, y):
-        if selectedBlock.within_textBox_bounds(x, y):
+    def check_textbox_collisions(self, selectedBlock, x, y):
+        if selectedBlock.within_textbox_bounds(x, y):
             return True
         return False
 
@@ -115,11 +115,11 @@ def main():
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 dragging = True
-                if selectedBlock and selectedBlock.has_condition(): 
-                    selectedBlock.disactivate_textBox()
+                if selectedBlock and selectedBlock.has_textbox(): 
+                    selectedBlock.deactivate_textbox()
                 selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
-                if selectedBlock and selectedBlock.has_condition():
-                    isActiveTextBox = tryPy_manager.check_textBox_collisions(selectedBlock, *event.pos) 
+                if selectedBlock and selectedBlock.has_textbox():
+                    isActiveTextBox = tryPy_manager.check_textbox_collisions(selectedBlock, *event.pos) 
                 else:
                     isActiveTextBox = False
             elif event.type == pygame.MOUSEBUTTONUP:
@@ -130,9 +130,6 @@ def main():
             elif event.type == pygame.MOUSEMOTION:
                 if dragging:
                     selectedBlock.move(*event.rel)
-                    c2 = selectedBlock.__class__
-                    c2(0, 0, 100, 100)
-                    #tryPy_manager.clone(target)
             elif event.type == pygame.KEYDOWN:
                 if isActiveTextBox:
                     if event.key == pygame.K_BACKSPACE:
