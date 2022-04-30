@@ -2,7 +2,6 @@
 from math import ceil
 import pygame
 import pygame.freetype
-import copy
 from blocks import *
 from constants import *
 
@@ -90,12 +89,15 @@ class BlockManager:
         self.main_blocks = []
         init_blocks(self)
 
-    def run_blocks(self):
+    def get_python_code(self):
         code = ''
         for block in self.main_blocks:
             num_indents = abs(ceil((self.blocks[0].x - block.x) / (BLOCK_WIDTH // (TIMES_FONT[1]//2))))
             code += ('\t' * num_indents) + ' '.join(block.tokenize()) + '\n'
-        code_obj = compile(code, 'blocks', 'exec')
+        return code
+
+    def run_blocks(self):
+        code_obj = compile(self.get_python_code(), 'blocks', 'exec')
         print('CODE OUTPUT:')
         exec(code_obj)
 
@@ -160,6 +162,8 @@ def main():
                     tryPy_manager.run_blocks()
                 elif event.key == pygame.K_r:
                     tryPy_manager.reset()
+                elif event.key == pygame.K_p:
+                    print(tryPy_manager.get_python_code())
 
             # clock.tick() # for showing fps
             # print(clock.get_fps())
