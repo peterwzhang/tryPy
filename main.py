@@ -106,6 +106,9 @@ def setup_screen(title, x, y):
     pygame.init()   # initialize the pygame module
     pygame.display.set_caption(title)
     screen = pygame.display.set_mode((x,y))
+    # TODO: add logo
+    # logo = pygame.image.load('#Enter the image')
+    # pygame.display.set_icon(logo)
     return screen
 
 def init_blocks(manager):
