@@ -67,7 +67,7 @@
                                     <a href="mailto:cacannarozzi@crimson.ua.edu">cacannarozzi@crimson.ua.edu</a>
                                 </td>
                                 <!-- UPDATE TIME TRACKING HERE -->
-                                <td>10 hours</td>
+                                <td>21 hours</td>
                             </tr>
                             <tr>
                                 <td>Madeline Moore</td>
@@ -76,7 +76,7 @@
                                     <a href="mailto:mcmoore11@crimson.ua.edu">mcmoore11@crimson.ua.edu</a>
                                 </td>
                                 <!-- UPDATE TIME TRACKING HERE -->
-                                <td>10 hours</td>
+                                <td>21 hours</td>
                             </tr>
                             <tr>
                                 <td>Peter Zhang</td>
@@ -85,7 +85,7 @@
                                     <a href="mailto:pwzhang@crimson.ua.edu">pwzhang@crimson.ua.edu</a>
                                 </td>
                                 <!-- UPDATE TIME TRACKING HERE -->
-                                <td>10 hours</td>
+                                <td>22 hours</td>
                             </tr>
                         </tbody>
                     </table>
@@ -162,6 +162,19 @@
                     <h4>Project Information</h4>
                     <p>The name tryPy is pronounced tri-pee (International Phonetic Alphabet: tɹɪpi)</p>
                 </div>
+                <div class="divider"></div>
+                <div class="section">
+                    <h4>References</h4>
+                    <p>The following presentations were references to generate the grammar for tryPy:<br>
+                        <a href="https://dl.acm.org/doi/abs/10.1145/3426425.3426948">&emsp;Block-based syntax from context-free grammars</a><br>
+                        <a href="https://dl.acm.org/doi/10.1145/3486608.3486908">&emsp;Getting grammars into shape for block-based editors</a><br>
+                    </p>
+                    <p>The following sites were used while creating the implementation of tryPy:<br>
+                        <a href="https://docs.python.org/3/">&emsp;Python 3 documentation</a><br>
+                        <a href="https://www.pygame.org/docs/">&emsp;Pygame documentation</a><br>
+                        <a href="https://dr0id.bitbucket.io/legacy/pygame_tutorial00.html">&emsp;Pygame tutorial by DR0ID</a><br>
+                    </p>
+                </div>
                 <p></p>
             </div>
             <!-- Presentation -->
@@ -170,32 +183,64 @@
                     <h4>Presentation</h4>
                 </div>
                 <div class="divider"></div>
+                <h4>Information on Presentation</h4>
+                <p>Although we have included a "Presentation" tab in our manual, please note that the manual itself is a presentation
+                    of tryPy. In this tab, there is additional information about what we would like to see with tryPy moving forward, specifics
+                    on the bugs currently found in the implementation, gifs of tryPy's execution, and any other information
+                    about tryPy that we found relevant to its presentation that didn't quite fit in any of the other sections.
+                </p>
+                <div class="divider"></div>
                 <h4>Moving Forward</h4>
                 <p>As this implementation of tryPy is quite rudimentary, we have many goals for the language moving
                     forward. We aim to improve the user experience of tryPy in addition to the functionality of it.
                 </p>
                 <p>
-                    Some of the user experience improvements we would like to implement in the future include:
+                    Some of the user experience/quality of life improvements we would like to implement in the future
+                    include:
                 <ul>
-                    <li>A customizable user interface that would allow users to have a layout that works best for them
+                    <li>A customizable user interface that would allow users to have a layout that works best for them,
+                        some of these customizations include: customizable font, font size, block size, and the
+                        positioning of starting blocks
                     </li>
                     <li>Changes to the user interface that would make tryPy more visually appealing, especially to
                         children</li>
+                    <li>Copy and pasting blocks</li>
+                    <li>A way to save, load, and share projects</li>
+                    <li>Color blind modes</li>
+                    <li>Optimizations to rendering to improve battery usage while using tryPy</li>
+                    <li>Allowing the snap ranges of blocks to be changed based on the user's liking</li>
+                    <li>Snapping sound effect for when blocks are snapped</li>
+                </ul>
+                </p>
+                <p>
+                    Some of the functional improvements and functionality we would like to implement in the future
+                    include:
+                <ul>
+                    <li>Allowing tryPy to better handle strings and string manipulation (blocks for string methods)</li>
+                    <li>Allowing tryPy to better handle lists (blocks for list methods)</li>
+                    <li>Adding blocks for function which in turn allows recursion and other functional features of the
+                        language</li>
+                    <li>Overall growth in complexity of what tryPy can handle</li>
                     <li>An instructional guide appearing on start with an option to participate in a walkthrough
                         tutorial showing the features of tryPy</li>
                     <li>Two modes: one where there are various challenges and you must complete one challenge to pass to
                         the next, and one for a tryPy "playground" where the user is able to code freely</li>
                     <li>In the challenge mode, set goals such as lines of code or iterations through a loop used to
                         complete a challenge and allow for the user to request hints</li>
+                    <li>Adding a block generator rather than just having a hardcoded amount of blocks</li>
+                    <li>A way to view the output of code in the user interface, right now it is printed to the python
+                        console</li>
+                    <li>A way to transform blocks to actual code in the user interface, right now it can be transformed
+                        but only viewed in the terminal</li>
                 </ul>
                 </p>
                 <p>
-                    Some of the functional improvements we would like to implement in the future include:
+                    Some bugs/problems we would like to fix in the future include:
                 <ul>
-                    <li>Allowing tryPy to handle strings and string manipulation</li>
-                    <li>Allowing tryPy to handle lists</li>
-                    <li>Allowing tryPy to handle functions and recursion</li>
-                    <li>Overall growth in complexity of what tryPy can handle</li>
+                    <li>Nested snapping can break blocks in some cases, needs more investigation</li>
+                    <li>Blocks can get disconnected from start when a large amount of blocks are added (band-aid fix by
+                        disabling block disconnection)</li>
+                    <li>Errors from bad block syntax are not handled right now</li>
                 </ul>
                 </p>
             </div>
@@ -320,7 +365,9 @@
                 <div class="section">
                     <h4>Grammar</h4>
                 </div>
-                <div>
+                <div class="divider"></div>
+                <p></p>
+                <div class="section">
                     <img id="ex-1" src="./pictures/tryPy_grammar.png" width="800" />
                 </div>
             </div>
@@ -346,7 +393,7 @@
                         <td><img id="res-1" src="./pictures/res1.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 2<br>task: check if a number is even or odd! print "odd" if the number is odd or
+                        <td>example 2<br>task: check if a number is even or odd. print "odd" if the number is odd or
                             "even" if the number is even</td>
                         <td><img id="ex-2-pycode" src="./pictures/ex2_pycode.png" /></td>
                         <td>tryPy code</td>
@@ -380,7 +427,7 @@
                         <td><img id="res-6" src="./pictures/res6.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 7<br>task: print the absoulute value of a number</td>
+                        <td>example 7<br>task: print the absolute value of a number</td>
                         <td><img id="ex-7-pycode" src="./pictures/ex7_pycode.png" /></td>
                         <td>tryPy code</td>
                         <td><img id="res-7" src="./pictures/res7.png" /></td>
@@ -433,67 +480,48 @@
                         <td><img id="res-14" src="./pictures/res14.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 15<br>task: convert a temperature in F to C</td>
-                        <td><img id="ex-15-pycode" src="./pictures/ex15_pycode.png" /></td>
-                        <td>tryPy code</td>
-                        <td><img id="res-15" src="./pictures/res15.png" /></td>
-                    </tr>
-                    <tr>
-                        <td>example 16<br>task: check if all digits of an integer are the same (print "all the same" if
+                        <td>example 15<br>task: check if all digits of an integer are the same (print "all the same" if
                             they are, "at least one difference" if not)</td>
                         <td><img id="ex-16-pycode" src="./pictures/ex16_pycode.png" /></td>
                         <td>tryPy code</td>
                         <td><img id="res-16" src="./pictures/res16.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 17<br>task: remove and print every third digit from an integer (start from end, move
+                        <td>example 16<br>task: remove and print every third digit from an integer (start from end, move
                             to beginning)</td>
                         <td><img id="ex-17-pycode" src="./pictures/ex17_pycode.png" /></td>
                         <td>tryPy code</td>
                         <td><img id="res-17" src="./pictures/res17.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 18<br>task: find the median of three numbers</td>
-                        <td><img id="ex-18-pycode" src="./pictures/ex18_pycode.png" /></td>
-                        <td>tryPy code</td>
-                        <td><img id="res-18" src="./pictures/res18.png" /></td>
-                    </tr>
-                    <tr>
-                        <td>example 19<br>task: count the number of times a specified digit appears in an integer</td>
+                        <td>example 17<br>task: count the number of times a specified digit appears in an integer</td>
                         <td><img id="ex-19-pycode" src="./pictures/ex19_pycode.png" /></td>
                         <td>tryPy code</td>
                         <td><img id="res-19" src="./pictures/res19.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 20<br>task: check if three lengths form a valid triangle (print "could be a
+                        <td>example 18<br>task: check if three lengths form a valid triangle (print "could be a
                             triangle" if yes, "no triangle here" if no)</td>
                         <td><img id="ex-20-pycode" src="./pictures/ex20_pycode.png" /></td>
                         <td>tryPy code</td>
                         <td><img id="res-20" src="./pictures/res20.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 21<br>task: print the absolute value of the difference between the first digit and
+                        <td>example 19<br>task: print the absolute value of the difference between the first digit and
                             last digit of an integer</td>
                         <td><img id="ex-21-pycode" src="./pictures/ex21_pycode.png" /></td>
                         <td>tryPy code</td>
                         <td><img id="res-21" src="./pictures/res21.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 22<br>task: print the absolute value of the difference between the smallest digit
-                            and largest digit of an integer</td>
-                        <td><img id="ex-22-pycode" src="./pictures/ex22_pycode.png" /></td>
-                        <td>tryPy code</td>
-                        <td><img id="res-22" src="./pictures/res22.png" /></td>
-                    </tr>
-                    <tr>
-                        <td>example 23<br>task: from two integers, print the sum of all values between the two numbers
+                        <td>example 20<br>task: from two integers, print the sum of all values between the two numbers
                             (not inclusive)</td>
                         <td><img id="ex-23-pycode" src="./pictures/ex23_pycode.png" /></td>
                         <td>tryPy code</td>
                         <td><img id="res-23" src="./pictures/res23.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 24<br>task: check if each digit in an integer is increasing or staying the same. if
+                        <td>example 21<br>task: check if each digit in an integer is increasing or staying the same. if
                             there is any decreasing, print "at least one decrease found". otherwise print "all
                             increasing or staying the same"</td>
                         <td><img id="ex-24-pycode" src="./pictures/ex24_pycode.png" /></td>
@@ -501,7 +529,7 @@
                         <td><img id="res-24" src="./pictures/res24.png" /></td>
                     </tr>
                     <tr>
-                        <td>example 25<br>task: print the sum of all squares of all digits in an integer (ex.
+                        <td>example 22<br>task: print the sum of all squares of all digits in an integer (ex.
                             123=1^2+2^2+3^2=14)</td>
                         <td><img id="ex-25-pycode" src="./pictures/ex25_pycode.png" /></td>
                         <td>tryPy code</td>
@@ -525,7 +553,8 @@
                         code. In order to interpret the code the block manager keeps track of every block connected to
                         the start block. When the "s" key is pressed the block manager will tokenize the blocks into a
                         string of python code then creates a code object using that string. The code object is then
-                        executed and the result is printed to the console.
+                        executed and the result is printed to the console. When the "r" key is pressed, all blocks
+                        are reset to the original selection menu.
                     </p>
                 </div>
                 <div class="divider"></div>
@@ -567,26 +596,11 @@
                         href="#requirements_sect">requirements</a> before running!</p>
                 <div class="divider"></div>
                 <div class="section">
-                    <h4>Example</h4>
-                    <p>Task: check if each digit in an integer is increasing or staying the same. If there is any
-                        decreasing, print "at least one decrease". Otherwise print "all increasing".</p>
-                    <p>x=123456789</p>
-                    <p>last=x%10</p>
-                    <p>while x!=0:</p>
-                    <p style="text-indent: 40px">next=x%10</p>
-                    <p style="text-indent: 40px">if next&gtlast:</p>
-                    <p style="text-indent: 80px">print("at least one decrease")</p>
-                    <p style="text-indent: 80px">break</p>
-                    <p style="text-indent: 40px">last=next</p>
-                    <p style="text-indent: 40px">x//=10</p>
-                    <p>if x==0:</p>
-                    <p style="text-indent: 40px">print("all increasing or staying the same")</p>
+                    <h4>Note on Implementation</h4>
+                    <p>Our implementation functions as a proof of concept for tryPy. While the implementation fulfils the basic
+                        requirements of tryPy, there are still some bugs that would be squashed with more time.
+                    </p>
                 </div>
-                <div>
-                    <img id="ex-1" src="./pictures/ex1.png" width="800" />
-                </div>
-                <p>You can see more examples in the <a href="javascript:tabSelect('part5')">Examples tab</a></p>
-                <p></p>
             </div>
 
         </div>
