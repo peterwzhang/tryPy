@@ -69,13 +69,12 @@ class TextBox(Block):
     def update_text(self, char):
         self.text += char
 
-
 class BlockWithTextBox(Block):
     def __init__(self, x, y, width, height, color, text, active_color):
         super().__init__(x, y, width, height, color, text)
         # if you change the next 2 lines make sure to change this also in the snap function
-        self.tb_x = x + TIMES_FONT[1]//2
-        self.tb_y = y + TIMES_FONT[1]*3
+        self.tb_x = self.get_tb_x()
+        self.tb_y = self.get_tb_y()
         self.tb_width = width - TIMES_FONT[1]
         self.tb_height = height // 3
         self.tb = TextBox(self.tb_x, self.tb_y, self.tb_width, self.tb_height, active_color)
@@ -102,15 +101,17 @@ class BlockWithTextBox(Block):
         self.tb.update_text(char)
 
     def snap(self, other_block):
-        temp_x = self.x
-        temp_y = self.y
         super().snap(other_block)
-        self.tb.x = self.tb.x + abs(self.x - temp_x)
-        self.tb.y = self.tb.y + abs(self.y - temp_y)
+        self.tb.x = self.get_tb_x()
+        self.tb.y = self.get_tb_y()
         self.tb.rect = (self.tb.x, self.tb.y, self.tb.width, self.tb.height)
 
     def deactivate_textbox(self):
         self.tb.deactivate()
+
+    def get_tb_x(self): return self.x + TIMES_FONT[1]//2
+
+    def get_tb_y(self): return self.y + TIMES_FONT[1]*3
 
 
 class Start(Block):
@@ -145,12 +146,8 @@ class Var(BlockWithTextBox):
     def __init__(self, x, y, width, height):
         activecolor = LIGHTBROWN
         super().__init__(x, y, width, height, BROWN, '', activecolor) 
-        self.tb_x = x + TIMES_FONT[1]//2
-        self.tb_y = y + TIMES_FONT[1]
-        self.tb_width = width // 2 - (TIMES_FONT[1]//2)*3
-        self.tb_height = height - TIMES_FONT[1]*2
-        self.tb = TextBox(self.tb_x, self.tb_y, self.tb_width, self.tb_height, activecolor)
-        self.tb2 = TextBox(x + width - self.tb_width - 5, self.tb_y, self.tb_width, self.tb_height, activecolor)
+        self.tb = TextBox(self.get_tb_x(), self.get_tb_y(), self.get_tb_width(), self.get_tb_height(), activecolor)
+        self.tb2 = TextBox(self.get_tb2_x(), self.get_tb_y(), self.get_tb_width(), self.get_tb_height(), activecolor)
 
     def render(self, surface):
         super().render(surface)
@@ -180,13 +177,25 @@ class Var(BlockWithTextBox):
         elif self.tb2.is_active: self.tb2.update_text(char)
 
     def snap(self, other_block):
-        temp_x = self.x
-        temp_y = self.y
         super().snap(other_block)
-        self.tb2.x = self.tb2.x + abs(self.x - temp_x)
-        self.tb2.y = self.tb2.y + abs(self.y - temp_y)
+        self.tb.x = self.get_tb_x()
+        self.tb.y = self.get_tb_y()
+        self.tb.rect = (self.tb.x, self.tb.y, self.tb.width, self.tb.height)
+
+        self.tb2.x = self.get_tb2_x()
+        self.tb2.y = self.get_tb_y()
         self.tb2.rect = (self.tb2.x, self.tb2.y, self.tb2.width, self.tb2.height)
 
     def deactivate_textbox(self):
         if self.tb.is_active: self.tb.deactivate()
         elif self.tb2.is_active: self.tb2.deactivate()
+    
+    def get_tb_x(self): return self.x + TIMES_FONT[1]//2
+
+    def get_tb_y(self): return self.y + TIMES_FONT[1]
+
+    def get_tb2_x(self): return self.x + self.width - self.tb.width - TIMES_FONT[1]//2 
+
+    def get_tb_width(self): return self.width // 2 - (TIMES_FONT[1]//2)*3
+
+    def get_tb_height(self): return self.height - TIMES_FONT[1]*2
