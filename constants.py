@@ -7,6 +7,9 @@ SCREEN_HEIGHT = 800
 # fonts
 TIMES_FONT = ("times", 10) # font, size
 
+# block properties
+BLOCK_WIDTH = 200
+
 # colors
 RED = (255,0,0)
 GREEN = (0,255,0)

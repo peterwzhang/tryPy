@@ -1,4 +1,5 @@
 # import the pygame module, so you can use it
+from math import ceil
 import pygame
 import pygame.freetype
 import copy
@@ -14,7 +15,6 @@ class BlockManager:
         self.blocks = []
         self.main_blocks = []
         self.screen = screen
-        self.ghost = None
 
     def add_block(self, block):
         self.blocks.append(block)
@@ -85,12 +85,19 @@ class BlockManager:
         #         self.main_blocks.remove(selectedBlock)
         #     selectedBlock.unsnap()
 
-    # clones target block and begins placing
-    def clone(self, target):
-        if target != None and not self.placing:
-            self.ghost = copy.deepcopy(target)
-            self.ghost.opacity = 128
-            self.placing = True
+    def reset(self):
+        self.blocks = []
+        self.main_blocks = []
+        init_blocks(self)
+
+    def run_blocks(self):
+        code = ''
+        for block in self.main_blocks:
+            num_indents = abs(ceil((self.blocks[0].x - block.x) / (BLOCK_WIDTH // (TIMES_FONT[1]//2))))
+            code += ('\t' * num_indents) + ' '.join(block.tokenize()) + '\n'
+        code_obj = compile(code, 'blocks', 'exec')
+        print('CODE OUTPUT:')
+        exec(code_obj)
 
 
 def setup_screen(title, x, y):
@@ -99,22 +106,24 @@ def setup_screen(title, x, y):
     screen = pygame.display.set_mode((x,y))
     return screen
 
+def init_blocks(manager):
+    manager.add_block(Start(0, 0, 200, 50))
+    for i in range(6):
+        #tryPy_manager.add_block(Block(0, 0, 100, 100))
+        manager.add_block(If(0, 50, 200, 75))
+        manager.add_block(Else(0, 125, 200, 75))
+        manager.add_block(While(0, 200, 200, 75))
+        manager.add_block(For(0, 275, 200, 75))
+        manager.add_block(Print(0, 350, 200, 75))
+        manager.add_block(Var(0, 425, 200, 50))
+        manager.add_block(Break(0, 475, 200, 50))
+
 # define a main function
 def main():
     # clock = pygame.time.Clock() # for showing fps
     screen = setup_screen(SCREEN_TITLE, SCREEN_WIDTH, SCREEN_HEIGHT)
     tryPy_manager = BlockManager(screen)
-
-    tryPy_manager.add_block(Start(0, 0, 200, 50))
-    for i in range(6):
-        #tryPy_manager.add_block(Block(0, 0, 100, 100))
-        tryPy_manager.add_block(If(0, 50, 200, 75))
-        tryPy_manager.add_block(Else(0, 125, 200, 75))
-        tryPy_manager.add_block(While(0, 200, 200, 75))
-        tryPy_manager.add_block(For(0, 275, 200, 75))
-        tryPy_manager.add_block(Print(0, 350, 200, 75))
-        tryPy_manager.add_block(Var(0, 425, 200, 50))
-        tryPy_manager.add_block(Break(0, 475, 200, 50))
+    tryPy_manager.reset()
 
     # variable for main game loop + mouse drag handling
     running = True
@@ -148,18 +157,11 @@ def main():
                         selectedBlock.backspace()
                     else:
                         selectedBlock.update_text(event.unicode)
+                if event.key == pygame.K_s:
+                    tryPy_manager.run_blocks()
                 if event.key == pygame.K_r:
-                    code = ''
-                    for block in tryPy_manager.main_blocks:
-                        if (block.x > tryPy_manager.blocks[0].x):
-                            #print('\t' + ' '.join(block.tokenize()))
-                            code += '\t' + ' '.join(block.tokenize()) + '\n'
-                        else:
-                            #print(' '.join(block.tokenize()))
-                            code += ' '.join(block.tokenize()) + '\n'
-                    code_obj = compile(code, 'blocks', 'exec')
-                    print('CODE OUTPUT:')
-                    exec(code_obj)
+                    tryPy_manager.reset()
+                    
             # clock.tick() # for showing fps
             # print(clock.get_fps())
             tryPy_manager.render_blocks()
