@@ -36,6 +36,9 @@ class Block:
     def get_center(self):
         return (self.x + self.width // 2, self.y + self.height // 2)
 
+    def get_left(self):
+        return (self.x, self.y + self.height // 2)
+
     def greatest_parent(self):
         cur = self
         while (cur.parent is not None):
@@ -46,6 +49,13 @@ class Block:
         self.parent = other_block
         other_block.next = self
         self.x = other_block.x + (other_block.width // (TIMES_FONT[1]//2)) if isinstance(other_block, (If, Else, While, For)) else other_block.x
+        self.y = other_block.y + other_block.height
+        self.rect = (self.x, self.y, self.width, self.height)
+
+    def unindent_snap(self, other_block):
+        self.parent = other_block
+        other_block.next = self
+        self.x = other_block.x - (other_block.width // (TIMES_FONT[1]//2))
         self.y = other_block.y + other_block.height
         self.rect = (self.x, self.y, self.width, self.height)
 
