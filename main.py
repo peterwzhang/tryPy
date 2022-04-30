@@ -1,4 +1,6 @@
-# import the pygame module, so you can use it
+# CS403 Final Project: tryPy
+# Team Members: Peter Zhang, Madeline Moore, Cara Cannarozzi
+
 from math import ceil
 import pygame
 import pygame.freetype

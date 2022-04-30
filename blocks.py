@@ -1,4 +1,6 @@
-from multiprocessing import Condition
+# CS403 Final Project: tryPy
+# Team Members: Peter Zhang, Madeline Moore, Cara Cannarozzi
+
 import pygame
 from constants import *
 

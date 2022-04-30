@@ -1,4 +1,6 @@
-import pygame
+# CS403 Final Project: tryPy
+# Team Members: Peter Zhang, Madeline Moore, Cara Cannarozzi
+
 # for screen
 SCREEN_TITLE = "tryPy"
 SCREEN_WIDTH = 1000

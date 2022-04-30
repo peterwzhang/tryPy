@@ -1,4 +1,5 @@
-# team members: Peter Zhang, Madeline Moore, Cara Cannarozzi
+# CS403 Final Project: tryPy
+# Team Members: Peter Zhang, Madeline Moore, Cara Cannarozzi
 
 # **NOTE: for all examples, variables must be set in the blocks and can be manipulated from there. the blocks do not take user input**
 # **NOTE: these examples are geared towards middle schoolers and late elementary schoolers as they will be the users of tryPy**
