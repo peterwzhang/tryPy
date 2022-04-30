@@ -36,6 +36,12 @@ class Block:
     def get_center(self):
         return (self.x + self.width // 2, self.y + self.height // 2)
 
+    def greatest_parent(self):
+        cur = self
+        while (cur.parent is not None):
+            cur = cur.parent
+        return cur
+
     def snap(self, other_block):
         self.parent = other_block
         other_block.next = self
@@ -54,11 +60,11 @@ class TextBox(Block):
         super().__init__(x, y, width, height, WHITE, '')
         self.is_active = False
         self.activeColor = active_color
-    
+
     def activate(self):
         self.color = self.activeColor
         self.is_active = True
-    
+
     def deactivate(self):
         self.color = WHITE
         self.is_active = False
@@ -119,19 +125,19 @@ class Start(Block):
 
 class If(BlockWithTextBox):
     def __init__(self, x, y, width, height):
-        super().__init__(x, y, width, height, PURPLE, 'if', LIGHTPURPLE) 
+        super().__init__(x, y, width, height, PURPLE, 'if', LIGHTPURPLE)
 
 class Else(BlockWithTextBox):
     def __init__(self, x, y, width, height):
-        super().__init__(x, y, width, height, LIGHTPURPLE, 'else', LIGHTERPURPLE) 
+        super().__init__(x, y, width, height, LIGHTPURPLE, 'else', LIGHTERPURPLE)
 
 class While(BlockWithTextBox):
     def __init__(self, x, y, width, height):
-        super().__init__(x, y, width, height, BLUE, 'while', LIGHTBLUE) 
+        super().__init__(x, y, width, height, BLUE, 'while', LIGHTBLUE)
 
 class For(BlockWithTextBox):
-    def __init__(self, x, y, width, height): 
-        super().__init__(x, y, width, height, YELLOW, 'for', LIGHTYELLOW) 
+    def __init__(self, x, y, width, height):
+        super().__init__(x, y, width, height, YELLOW, 'for', LIGHTYELLOW)
 
 class Break(Block):
     def __init__(self, x, y, width, height):
@@ -141,10 +147,10 @@ class Print(BlockWithTextBox):
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height, ORANGE, 'print', LIGHTORANGE)
 
-class Var(BlockWithTextBox): 
+class Var(BlockWithTextBox):
     def __init__(self, x, y, width, height):
         activecolor = LIGHTBROWN
-        super().__init__(x, y, width, height, BROWN, '', activecolor) 
+        super().__init__(x, y, width, height, BROWN, '', activecolor)
         self.tb_x = x + TIMES_FONT[1]//2
         self.tb_y = y + TIMES_FONT[1]
         self.tb_width = width // 2 - (TIMES_FONT[1]//2)*3
