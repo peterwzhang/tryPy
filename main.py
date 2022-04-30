@@ -22,6 +22,20 @@ class BlockManager:
     def delete_block(self, block):
         self.blocks.remove(block)
 
+    def add_main_block(self, block):
+        self.main_blocks.append(block)
+        next = block.next
+        while (next is not None):
+            self.main_blocks.append(next)
+            next = next.next
+
+    def remove_main_block(self, block):
+        self.main_blocks.remove(block)
+        next = block.next
+        while (next is not None):
+            self.main_blocks.remove(next)
+            next = next.next
+
     def render_blocks(self):
         self.screen.fill(BLACK)
         for block in self.blocks:
@@ -59,19 +73,12 @@ class BlockManager:
         snap_candidates = self.get_snap_collisions(selectedBlock)
         if snap_candidates[0] is not None:
             selectedBlock.snap(snap_candidates[0])
+            if not isinstance(selectedBlock, Start) and isinstance(selectedBlock.greatest_parent(), Start):
+                self.main_blocks.append(selectedBlock)
         else:
+            if not isinstance(selectedBlock, Start) and isinstance(selectedBlock.greatest_parent(), Start):
+                self.main_blocks.remove(selectedBlock)
             selectedBlock.unsnap()
-
-    # recursively identifies what block is at pos, children have priority
-    def identify_block(self, pos, blocks = None):
-        if blocks == None: blocks = self.global_blocks
-        for block in blocks:
-            children = block.children[:]
-            if isinstance(block, block_defs.SlotBlock):
-                children.extend(list(block.slots.values())[:])
-            ret = self.identify_block(pos, children)
-            if ret: return ret
-            if shared.check_collision(block.pos, block.size, pos): return block
 
     # clones target block and begins placing
     def clone(self, target):
@@ -89,6 +96,7 @@ def setup_screen(title, x, y):
 
 # define a main function
 def main():
+    # clock = pygame.time.Clock() # for showing fps
     screen = setup_screen(SCREEN_TITLE, SCREEN_WIDTH, SCREEN_HEIGHT)
     tryPy_manager = BlockManager(screen)
 
@@ -108,6 +116,7 @@ def main():
     selectedBlock = None
     dragging = False
     isActiveTextBox = False
+
     # main loop
     while running:
         for event in pygame.event.get():
@@ -115,9 +124,9 @@ def main():
                 running = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 dragging = True
+                selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
                 if selectedBlock and selectedBlock.has_textbox(): 
                     selectedBlock.deactivate_textbox()
-                selectedBlock = tryPy_manager.check_block_collisions(*event.pos)[0]
                 if selectedBlock and selectedBlock.has_textbox():
                     isActiveTextBox = tryPy_manager.check_textbox_collisions(selectedBlock, *event.pos) 
                 else:
@@ -127,8 +136,9 @@ def main():
                 dragging = False
                 #selectedBlock = None
                 #isActiveTextBox= False
+                #print(tryPy_manager.main_blocks)
             elif event.type == pygame.MOUSEMOTION:
-                if dragging:
+                if selectedBlock and dragging:
                     selectedBlock.move(*event.rel)
             elif event.type == pygame.KEYDOWN:
                 if isActiveTextBox:
@@ -136,6 +146,8 @@ def main():
                         selectedBlock.backspace()
                     else:
                         selectedBlock.update_text(event.unicode)
+            # clock.tick() # for showing fps
+            # print(clock.get_fps())
             tryPy_manager.render_blocks()
 
 

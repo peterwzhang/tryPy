@@ -90,6 +90,7 @@
                         </tbody>
                     </table>
                 </div>
+                <p></p>
                 <div class="divider"></div>
                 <div class="section">
                     <h4>Task Distribution</h4>
@@ -157,6 +158,10 @@
                     <p></p>
                 </div>
                 <div class="divider"></div>
+                <div class="section">
+                    <h4>Project Information</h4>
+                    <p>The name tryPy is pronounced tri-pee (International Phonetic Alphabet: tɹɪpi)</p>
+                </div>
                 <p></p>
             </div>
             <!-- Presentation -->
@@ -270,39 +275,180 @@
                     <h4>Examples</h4>
                 </div>
                 <div class="divider"></div>
-                <div class="section">
-                    <p>Task: check if each digit in an integer is increasing or staying the same. If there is any decreasing, print "at least one decrease". Otherwise print "all increasing".
-                    <p>x=123456789</p>
-                    <p>last=x%10</p>
-                    <p>while x!=0:</p>
-                    <p style="text-indent: 40px">next=x%10</p>
-                    <p style="text-indent: 40px">if next>last:</p>
-                    <p style="text-indent: 80px">print("at least one decrease")</p>
-                    <p style="text-indent: 80px">break</p>
-                    <p style="text-indent: 40px">last=next</p>
-                    <p style="text-indent: 40px">x//=10</p>
-                    <p>if x==0:</p>
-                    <p style="text-indent: 40px">print("all increasing or staying the same")</p>
-                </div> 
-                <div>
-                    <img id="ex-1" src="./pictures/ex1.png" width="800"/>
-                </div>
                 <p></p>
+                <table>
+                    <tr>
+                        <th>Example and Task</th>
+                        <th>Python Code</th>
+                        <th>tryPy Code</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>example 1<br>task: add up all numbers from 1 to 100. try to do this using by going through a loop only 50 times!</td>
+                        <td><img id="ex-1-pycode" src="./pictures/ex1_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-1" src="./pictures/res1.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 2<br>task: check if a number is even or odd! print "odd" if the number is odd or "even" if the number is even</td>
+                        <td><img id="ex-2-pycode" src="./pictures/ex2_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-2" src="./pictures/res2.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 3<br>task: use the base and height of a triangle to calculate its area</td>
+                        <td><img id="ex-3-pycode" src="./pictures/ex3_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-3" src="./pictures/res3.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 4<br>task: using the diameter of a circle, calculate its circumference and its area (use 3.14 for pi)</td>
+                        <td><img id="ex-4-pycode" src="./pictures/ex4_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-4" src="./pictures/res4.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 5<br>task: using a number of your choice, print out all non-negative numbers leading up to it</td>
+                        <td><img id="ex-5-pycode" src="./pictures/ex5_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-5" src="./pictures/res5.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 6<br>task: using two numbers (a coefficient and an exponent), print the coefficient to the power of the exponent</td>
+                        <td><img id="ex-6-pycode" src="./pictures/ex6_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-6" src="./pictures/res6.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 7<br>task: print the absoulute value of a number</td>
+                        <td><img id="ex-7-pycode" src="./pictures/ex7_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-7" src="./pictures/res7.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 8<br>task: print the difference between a given number and 21, if the number is greater than 21 print double the absolute difference</td>
+                        <td><img id="ex-8-pycode" src="./pictures/ex8_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-8" src="./pictures/res8.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 9<br>task: use a number and a range to check if the number is within the range of 5000 (inclusive). print "yes!" if it is or "no" if it isn't</td>
+                        <td><img id="ex-9-pycode" src="./pictures/ex9_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-9" src="./pictures/res9.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 10<br>task: print the sum of two numbers, but if the numbers are equal, print 0</td>
+                        <td><img id="ex-10-pycode" src="./pictures/ex10_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-10" src="./pictures/res10.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 11<br>task: print the square of the sum of two numbers (x+y)^2</td>
+                        <td><img id="ex-11-pycode" src="./pictures/ex11_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-11" src="./pictures/res11.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 12<br>task: print the sum of all digits from an integer (ex. 12345 will output 15)</td>
+                        <td><img id="ex-12-pycode" src="./pictures/ex12_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-12" src="./pictures/res12.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 13<br>task: print the future value of a specified principal amount, rate of interest, and a number of years. don't worry about rounding</td>
+                        <td><img id="ex-13-pycode" src="./pictures/ex13_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-13" src="./pictures/res13.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 14<br>task: convert a length in feet and inches to centimeters using inch to centimeter conversion of 2.54 cm/in</td>
+                        <td><img id="ex-14-pycode" src="./pictures/ex14_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-14" src="./pictures/res14.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 15<br>task: convert a temperature in F to C</td>
+                        <td><img id="ex-15-pycode" src="./pictures/ex15_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-15" src="./pictures/res15.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 16<br>task: check if all digits of an integer are the same (print "all the same" if they are, "at least one difference" if not)</td>
+                        <td><img id="ex-16-pycode" src="./pictures/ex16_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-16" src="./pictures/res16.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 17<br>task: remove and print every third digit from an integer (start from end, move to beginning)</td>
+                        <td><img id="ex-17-pycode" src="./pictures/ex17_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-17" src="./pictures/res17.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 18<br>task: find the median of three numbers</td>
+                        <td><img id="ex-18-pycode" src="./pictures/ex18_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-18" src="./pictures/res18.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 19<br>task: count the number of times a specified digit appears in an integer</td>
+                        <td><img id="ex-19-pycode" src="./pictures/ex19_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-19" src="./pictures/res19.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 20<br>task: check if three lengths form a valid triangle (print "could be a triangle" if yes, "no triangle here" if no)</td>
+                        <td><img id="ex-20-pycode" src="./pictures/ex20_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-20" src="./pictures/res20.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 21<br>task: print the absolute value of the difference between the first digit and last digit of an integer</td>
+                        <td><img id="ex-21-pycode" src="./pictures/ex21_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-21" src="./pictures/res21.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 22<br>task: print the absolute value of the difference between the smallest digit and largest digit of an integer</td>
+                        <td><img id="ex-22-pycode" src="./pictures/ex22_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-22" src="./pictures/res22.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 23<br>task: from two integers, print the sum of all values between the two numbers (not inclusive)</td>
+                        <td><img id="ex-23-pycode" src="./pictures/ex23_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-23" src="./pictures/res23.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 24<br>task: check if each digit in an integer is increasing or staying the same. if there is any decreasing, print "at least one decrease found". otherwise print "all increasing or staying the same"</td>
+                        <td><img id="ex-24-pycode" src="./pictures/ex24_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-24" src="./pictures/res24.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>example 25<br>task: print the sum of all squares of all digits in an integer (ex. 123=1^2+2^2+3^2=14)</td>
+                        <td><img id="ex-25-pycode" src="./pictures/ex25_pycode.png"/></td>
+                        <td>tryPy code</td>
+                        <td><img id="res-25" src="./pictures/res25.png"/></td>
+                    </tr>
+                </table>
             </div>
             <!-- Implementation -->
             <div id="part6" class="hide">
                 <div class="section">
                     <h4>Implementation</h4>
+                    <p>
+                        To implement this code we first created our blocks. We made a base block class which has all the
+                        base properties of a block, such as dimensions, color, rendering method, and movement. Then all of
+                        our other blocks inherit from the base block and have their own additional properties and methods as
+                        needed. In order to handle the actual interpreting of blocks, we made a block manager. This class
+                        handles all of the tracking of blocks, how they snap together, and also interprets the block code.
+                    </p>
                 </div>
-                <p>
-                    To implement this code we first created our blocks. We made a base block class which has all the
-                    base properties of a block, such as dimensions, color, rendering method, and movement. Then all of
-                    our other blocks inherit from the base block and have their own additional properties and methods as
-                    needed. In order to handle the actual interpreting of blocks, we made a block manager. This class
-                    handles all of the tracking of blocks, how they snap together, and also interprets the block code.
-                </p>
                 <div class="divider"></div>
-                <div class="section">
+                <div class="section" id="requirements_sect">
                     <h4>Requirements</h4>
                     <p style="margin-bottom: 0">
                         This project has a few requirements. They are listed below.
@@ -336,6 +482,27 @@
                     following into the command line while in the main directory:
                 </p>
                 <code> $ python3 main.py </code>
+                <p style="margin-top: 0;">Make sure you have installed all of the <a href="#requirements_sect">requirements</a> before running!</p>
+                <div class="divider"></div>
+                <div class="section">
+                    <h4>Example</h4>
+                    <p>Task: check if each digit in an integer is increasing or staying the same. If there is any decreasing, print "at least one decrease". Otherwise print "all increasing".</p>
+                    <p>x=123456789</p>
+                    <p>last=x%10</p>
+                    <p>while x!=0:</p>
+                    <p style="text-indent: 40px">next=x%10</p>
+                    <p style="text-indent: 40px">if next&gtlast:</p>
+                    <p style="text-indent: 80px">print("at least one decrease")</p>
+                    <p style="text-indent: 80px">break</p>
+                    <p style="text-indent: 40px">last=next</p>
+                    <p style="text-indent: 40px">x//=10</p>
+                    <p>if x==0:</p>
+                    <p style="text-indent: 40px">print("all increasing or staying the same")</p>
+                </div>
+                <div>
+                    <img id="ex-1" src="./pictures/ex1.png" width="800"/>
+                </div>
+                <p>You can see more examples in the <a href="javascript:tabSelect('part5')">Examples tab</a></p>
                 <p></p>
             </div>
 
@@ -360,6 +527,7 @@
         );
         currentTabContent.classList.toggle("hide");
         newTabContent.classList.toggle("hide");
+        window.scrollTo(0,0);
     }
 
     function readTextFile(file) {

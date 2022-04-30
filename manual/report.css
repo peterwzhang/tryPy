@@ -30,7 +30,8 @@ table {
 
 img {
   border: 1px solid #000;
-  border-radius: 1.5em;
+  /*border-radius: 1.5em;*/
+  border-radius: 0.75em;
 }
 
 .tabs {
