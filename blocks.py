@@ -15,7 +15,7 @@ class Block:
         self.color = color
         self.rect = (x, y, width, height)
         self.text = text
-        self.has_tb = False
+        self.has_tb = False 
         self.parent = None
         self.next = None
 
@@ -23,6 +23,7 @@ class Block:
     def render(self, surface):
         pygame.draw.rect(surface, self.color, self.rect)
         font = pygame.freetype.SysFont(*TIMES_FONT)
+        #adds text to block
         font.render_to(surface, (self.x + TIMES_FONT[1]//2, self.y + TIMES_FONT[1]//2), self.text, BLACK, size=20)
 
     # checks if coordinates are inside the block
@@ -120,7 +121,7 @@ class TextBox(Block):
     def update_text(self, char):
         self.text += char
 
-    # resets text box
+    # resets text box dimensions
     def reset_x_y(self, x, y):
         self.x = x
         self.y = y
@@ -190,7 +191,7 @@ class Start(Block):
 # class for if block (initializes and sets default values)
 class If(BlockWithTextBox):
     def __init__(self, x, y, width, height):
-        # super() of If is BlockWithTextBox since there are is one text box
+        # super() of If is BlockWithTextBox since there is one text box
         super().__init__(x, y, width, height, PURPLE, 'if', LIGHTPURPLE)
 
 # class for else block (initializes and sets default values)
@@ -202,13 +203,13 @@ class Else(Block):
 # class for while block (initializes and sets default values)
 class While(BlockWithTextBox):
     def __init__(self, x, y, width, height):
-        # super() of While is BlockWithTextBox since there are is one text box
+        # super() of While is BlockWithTextBox since there is one text box
         super().__init__(x, y, width, height, BLUE, 'while', LIGHTBLUE)
 
 # class for for block (initializes and sets default values)
 class For(BlockWithTextBox):
     def __init__(self, x, y, width, height):
-        # super() of For is BlockWithTextBox since there are is one text box
+        # super() of For is BlockWithTextBox since there is one text box
         super().__init__(x, y, width, height, YELLOW, 'for', LIGHTYELLOW)
 
 # class for break block (initializes and sets default values)
@@ -225,7 +226,7 @@ class Print(BlockWithTextBox):
 
 # class for variable assignment block
 class Var(BlockWithTextBox):
-    # constructor, sets default values (inherets from BlockWithTextBox but is different since there are two text boxes)
+    # constructor, sets default values (inherits from BlockWithTextBox but is different since there are two text boxes)
     def __init__(self, x, y, width, height):
         activecolor = LIGHTBROWN
         super().__init__(x, y, width, height, BROWN, '', activecolor) 
@@ -239,6 +240,7 @@ class Var(BlockWithTextBox):
         self.tb2.reset_x_y(self.get_tb2_x(), self.get_tb_y())
         self.tb2.render(surface)
         font = pygame.freetype.SysFont(*TIMES_FONT)
+        #adds "=" between text boxes
         font.render_to(surface, ((self.x + self.width//2 - TIMES_FONT[1]//2), (self.y + self.height//2 - 2)), "=", BLACK, size=20)
 
     # moves block by specified x and y
@@ -258,14 +260,14 @@ class Var(BlockWithTextBox):
             return True
         return False
 
-    # deletes one character from text box
+    # deletes one character from active text box
     def backspace(self):
         # if in LHS text box
         if self.tb.is_active: self.tb.backspace()
         # if in RHS text box
         elif self.tb2.is_active: self.tb2.backspace()
 
-    # adds one character to text box
+    # adds one character to active text box
     def update_text(self, char):
         # if in LHS text box
         if self.tb.is_active: self.tb.update_text(char)
