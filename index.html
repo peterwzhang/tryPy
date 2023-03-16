@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="./pictures/logo.png">
+    <title>Spring 2022 | CS403 Final Project: tryPy</title>
+    <link href="./stylesheet.css" rel="stylesheet" />
+    <script async src="/cdn-cgi/bm/cv/669835187/api.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section center">
+            <img id="logo1" src="./pictures/logo.png" width="100" style="float:left;border:0px">
+            <img id="logo2" src="./pictures/logo.png" width="100" style="float:right;border:0px">
+            <h2 class="no-bottom-margin">Final Project: tryPy</h2>
+            <h3 class="no-margin">Spring 2022 • CS 403</h3>
+            <p class="no-top-margin">Language used: Python3</p>
+        </div>
+        <div class="tabs row">
+            <div class="col s12 m4 tab active" data-tab="part1">
+                <a href="javascript:tabSelect('part1')">
+                    Part 1<br />Project Information
+                </a>
+            </div>
+            <div class="col s12 m4 tab" data-tab="part2">
+                <a href="javascript:tabSelect('part2')"> Part 2<br />Presentation </a>
+            </div>
+            <div class="col s12 m4 tab" data-tab="part3">
+                <a href="javascript:tabSelect('part3')">
+                    Part 3<br />Justification
+                </a>
+            </div>
+            <div class="col s12 m4 tab" data-tab="part4">
+                <a href="javascript:tabSelect('part4')">
+                    Part 4<br />Grammar
+                </a>
+            </div>
+            <div class="col s12 m4 tab" data-tab="part5">
+                <a href="javascript:tabSelect('part5')"> Part 5<br />Examples </a>
+            </div>
+            <div class="col s12 m4 tab" data-tab="part6">
+                <a href="javascript:tabSelect('part6')">
+                    Part 6<br />Implementation
+                </a>
+            </div>
+        </div>
+        <div class="tab-content-area">
+            <!-- Project Information -->
+            <div id="part1">
+                <div class="section">
+                    <h4>Group Information</h4>
+                    <table class="center">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>CWID</th>
+                                <th>Email Address</th>
+                                <th>Time Spent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cara Cannarozzi</td>
+                                <td style="font-family: monospace">11970792</td>
+                                <td>
+                                    <a href="mailto:cacannarozzi@crimson.ua.edu">cacannarozzi@crimson.ua.edu</a>
+                                </td>
+                                <!-- UPDATE TIME TRACKING HERE -->
+                                <td>21 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Madeline Moore</td>
+                                <td style="font-family: monospace">11884126</td>
+                                <td>
+                                    <a href="mailto:mcmoore11@crimson.ua.edu">mcmoore11@crimson.ua.edu</a>
+                                </td>
+                                <!-- UPDATE TIME TRACKING HERE -->
+                                <td>21 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Peter Zhang</td>
+                                <td style="font-family: monospace">11861641</td>
+                                <td>
+                                    <a href="mailto:pwzhang@crimson.ua.edu">pwzhang@crimson.ua.edu</a>
+                                </td>
+                                <!-- UPDATE TIME TRACKING HERE -->
+                                <td>22 hours</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p></p>
+                <div class="divider"></div>
+                <div class="section">
+                    <h4>Task Distribution</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th colspan="3">Percentage of Task</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>Cara Cannarozzi</th>
+                                <th>Madeline Moore</th>
+                                <th>Peter Zhang</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>Presentation</strong>
+                                </td>
+
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Justification</strong>
+                                </td>
+
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Grammar</strong>
+                                </td>
+
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Examples</strong>
+                                </td>
+
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Implementation</strong>
+                                </td>
+
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                                <td>33.33%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p></p>
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                    <h4>Project Information</h4>
+                    <p>The name tryPy is pronounced tri-pee (International Phonetic Alphabet: tɹɪpi)</p>
+                    <p>This is a picture of our logo:</p>
+                    <img id="logo-pic" src="./pictures/logo.png" width="100" />
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                    <h4>References</h4>
+                    <p>The following presentations were references to generate the grammar for tryPy:<br>
+                        <a href="https://dl.acm.org/doi/abs/10.1145/3426425.3426948">&emsp;Block-based syntax from
+                            context-free grammars</a><br>
+                        <a href="https://dl.acm.org/doi/10.1145/3486608.3486908">&emsp;Getting grammars into shape for
+                            block-based editors</a><br>
+                    </p>
+                    <p>The following sites were used while creating the implementation of tryPy:<br>
+                        <a href="https://docs.python.org/3/">&emsp;Python3 documentation</a><br>
+                        <a href="https://www.pygame.org/docs/">&emsp;Pygame documentation</a><br>
+                        <a href="https://dr0id.bitbucket.io/legacy/pygame_tutorial00.html">&emsp;Pygame tutorial by
+                            DR0ID</a><br>
+                    </p>
+                </div>
+                <p></p>
+            </div>
+            <!-- Presentation -->
+            <div id="part2" class="hide">
+                <div class="section">
+                    <h4>Presentation</h4>
+                </div>
+                <p>Although we have included a "Presentation" tab in our manual, please note that the manual itself is a
+                    presentation
+                    of tryPy. In this tab, there is additional information about what we would like to see with tryPy
+                    moving forward, specifics
+                    on the bugs currently found in the implementation, videos of tryPy's execution, and any other
+                    information
+                    about tryPy that we found relevant to its presentation that didn't quite fit in any of the other
+                    sections.
+                </p>
+                <div class="divider"></div>
+                <div class="section" id="group-photo">
+                    <h4>Group Photo</h4>
+                    <img id="group-pic" src="./pictures/group_pic.jpeg" width="1080"/>
+                </div>
+                <p></p>
+                <div class="divider"></div>
+                <div class="section" id="video-demoes">
+                    <h4>Demo Videos</h4>
+                    <p>Example 21 being built, printed, and run</p>
+                    <video controls="controls" width="1000" height="800" name="Running Code">
+                        <source src="./videos/ex.mov">
+                      </video>
+                    <p>Resetting tryPy after the example</p>
+                    <video controls="controls" width="1000" height="800" name="Reset">
+                        <source src="./videos/reset.mov">
+                      </video>
+                </div>
+                <p></p>
+                <div class="divider"></div>
+                <div class="section">
+                    <h4>Moving Forward</h4>
+                    <p>As this implementation of tryPy is quite rudimentary, we have many goals for the language moving
+                        forward. We aim to improve the user experience of tryPy in addition to the functionality of it.
+                    </p>
+                    <p>
+                        Some of the user experience/quality of life improvements we would like to implement in the
+                        future
+                        include:
+                    <ul>
+                        <li>A customizable user interface that would allow users to have a layout that works best for
+                            them,
+                            some of these customizations include: customizable font, font size, block size, and the
+                            positioning of starting blocks
+                        </li>
+                        <li>Changes to the user interface that would make tryPy more visually appealing, especially to
+                            children</li>
+                        <li>Copy and pasting blocks</li>
+                        <li>A way to save, load, and share projects</li>
+                        <li>Color blind modes</li>
+                        <li>Optimizations to rendering to improve battery usage while using tryPy</li>
+                        <li>Allowing the snap ranges of blocks to be changed based on the user's liking</li>
+                        <li>Snapping sound effect for when blocks are snapped</li>
+                    </ul>
+                    </p>
+                    <p>
+                        Some of the functional improvements and functionality we would like to implement in the future
+                        include:
+                    <ul>
+                        <li>Allowing tryPy to better handle strings and string manipulation (blocks for string methods)
+                        </li>
+                        <li>Allowing tryPy to better handle lists (blocks for list methods)</li>
+                        <li>Adding blocks for function which in turn allows recursion and other functional features of
+                            the
+                            language</li>
+                        <li>Overall growth in complexity of what tryPy can handle</li>
+                        <li>An instructional guide appearing on start with an option to participate in a walkthrough
+                            tutorial showing the features of tryPy</li>
+                        <li>Two modes: one where there are various challenges and you must complete one challenge to
+                            pass to
+                            the next, and one for a tryPy "playground" where the user is able to code freely</li>
+                        <li>In the challenge mode, set goals such as lines of code or iterations through a loop used to
+                            complete a challenge and allow for the user to request hints</li>
+                        <li>Adding a block generator rather than just having a hardcoded amount of blocks</li>
+                        <li>A way to view the output of code in the user interface, right now it is printed to the
+                            python
+                            console</li>
+                        <li>A way to transform blocks to actual python code in the user interface, allowing
+                            cross-platform
+                            editing, right now it can be transformed
+                            but only viewed in the terminal</li>
+                        <li>Make a lesson plan and documentation to assist teachers in using tryPy in the classroom</li>
+                    </ul>
+                    </p>
+                    <p>
+                        Some bugs/problems we would like to fix in the future include:
+                    <ul>
+                        <li>Nested snapping can break blocks in some cases, needs more investigation</li>
+                        <li>Blocks can get disconnected from start when clicking a text box (type text before adding
+                            block)
+                        </li>
+                        <li>Handling any case of blocks being added</li>
+                        <li>Errors from bad block syntax are not handled right now</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            <!-- Justification -->
+            <div id="part3" class="hide">
+                <div class="section">
+                    <h4>Justification</h4>
+                </div>
+                <div class="divider"></div>
+                <p>Our goal for this language is simple: create an accessible, visually based language that can be
+                    easily used by
+                    elementary and early middle school students while displaying more of the actual syntax of a typed
+                    programming
+                    language (in our case, Python). Most block coding languages, like Scratch, have more simplistic
+                    syntax on the
+                    blocks, writing commands in English rather than allowing the student to see the language behind the
+                    blocks. These
+                    traditional block coding languages certainly have merit. They are a great way to get students
+                    excited about the field
+                    of computer science and introduce the problem-solving skills that are important to programming.
+                    However, the jump
+                    from block coding to typing code can be quite jarring. The intent of tryPy is to provide a more
+                    student-oriented
+                    transition to typing code by combining the easy-to-conceptualize blocks with typed Python.
+                </p>
+                <p>We chose Python as the language for our intermediate blocks due to its wide usage and simple syntax.
+                    Since the
+                    code will appear in blocks, it makes the most sense to first implement intermediate block coding
+                    using a language
+                    with an easier-to-visualize syntax than other languages like C. Additionally, since Python is so
+                    widely used, it is a
+                    skill that will be applicable in a variety of fields. Students will receive exposure to Python from
+                    a young age which
+                    will improve fluency later in life. Like with any spoken language, it is easier to learn a language
+                    if you begin
+                    young and tryPy is a great way to introduce Python early.
+                </p>
+                <p>To gather more information about the potential utility of such a language, we interviewed an
+                    elementary school
+                    teacher, who will be referred to as Mrs. C. Mrs. C uses block coding to introduce computer science
+                    concepts to her
+                    students and participates in Hour of Code with third, fourth, and fifth graders each year. In our
+                    interview, we asked
+                    questions regarding the utility of block coding as it is being used in the classroom now, the
+                    usefulness of
+                    introducing computer science concepts to students at a young age, and the potential utility of an
+                    intermediate block
+                    language such as tryPy.
+                </p>
+                <p>Our first questions to Mrs. C were regarding block coding as it is currently implemented. Mrs. C uses
+                    Hour of Code
+                    to reach students outside of her own classroom, so to share insight on the largest sample size, many
+                    of her responses
+                    were surrounding Hour of Code over the past 3 years. Mrs. C primarily focused on two activities with
+                    students during
+                    Hour of Code. Of the two activities, one was geared toward the younger students (third and fourth
+                    graders) and the
+                    other was geared toward the older students (fourth graders with previous coding experience and fifth
+                    graders). Mrs. C
+                    noted that between the two activities, despite being in the same block language, there were certain
+                    differences in
+                    how you need to connect blocks to complete the tasks. She said this caused some confusion in
+                    students who had done
+                    both options. Other than the difference in the syntax in the two activities, Mrs. C thought the
+                    blocks were a great
+                    way to introduce programming to the students. There was an option to see the code behind what the
+                    blocks were doing,
+                    which was too great of a jump from the blocks for students to fully understand what the code did but
+                    was interesting
+                    feedback on current implementation of blocks.
+                </p>
+                <p>Our next questions to Mrs. C were regarding block coding and the introduction of computer science
+                    concepts to
+                    young students. In her opinion, block coding is a good introduction to computer science and has
+                    certainly inspired
+                    an increased interest in computer science within her students. She even mentioned that some teachers
+                    now use block
+                    coding projects as a reward for students if they complete other classwork early since the students
+                    enjoy it so much.
+                    When asked about the skills that block coding has helped her students, learn, Mrs. C said that
+                    outside of computer
+                    and coding skills, participating in Hour of Code and otherwise using block coding has helped teach
+                    her students about
+                    perseverance and the importance of trying different solutions to solving a problem. She also noted
+                    that it helps
+                    students learn about problem solving skills that apply to other fields academically and outside of
+                    the classroom.
+                </p>
+                <p>We closed out our interview with Ms. C by asking about the utility of an intermediate block
+                    programming language.
+                    We explained the concept of tryPy and its visualization of code that is syntactically similar to
+                    Python. She was
+                    interested in the concept and agreed that it would be most useful as a “half-step” from pure block
+                    coding to fully
+                    typed coding. She said that from her experience, students should still start out with a pure block
+                    language, like
+                    Scratch, and then move into an intermediate block language such as tryPy in fifth grade (if they
+                    have sufficient block
+                    coding experience) or middle school. With the increased realism of tryPy, students would be able to
+                    more
+                    easily transition from blocks to typing, and the retention of interest between elementary, middle,
+                    and high
+                    school would increase.
+                </p>
+                <p>Our new language, tryPy has the potential to revolutionize the way computer science is taught to
+                    young students.
+                    It would bridge the gap between purely block coding and purely typed coding, making the transition
+                    smoother for
+                    students who start working with blocks and maintaining students’ interest in computer science
+                    throughout their
+                    elementary and middle school years. Through an interview with a teacher who currently uses block
+                    coding in her
+                    classroom, we have verified these ideas from an educator’s point of view. tryPy increases the
+                    accessibility of
+                    computer science to students in elementary school while also maintaining interest in computer
+                    science as students
+                    continue with their education.
+                </p>
+            </div>
+            <!-- Grammar -->
+            <div id="part4" class="hide">
+                <div class="section">
+                    <h4>Grammar</h4>
+                </div>
+                <div class="divider"></div>
+                <p></p>
+                <div class="section">
+                    <img id="ex-1" src="./pictures/tryPy_grammar.png" width="800" />
+                </div>
+            </div>
+            <!-- Examples -->
+            <div id="part5" class="hide">
+                <div class="section">
+                    <h4>Examples</h4>
+                </div>
+                <div class="divider"></div>
+                <p></p>
+                <table>
+                    <tr>
+                        <th>Example and Task</th>
+                        <th>Python Code</th>
+                        <th>tryPy Code</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>example 1<br>task: add up all numbers from 1 to 100. try to do this using by going through a
+                            loop only 50 times!</td>
+                        <td><img id="ex-1-pycode" src="./pictures/ex1_pycode.png" /></td>
+                        <td><img id="ex-1-tryPy" src="./pictures/ex1_trypy.png" width="200"></td>
+                        <td><img id="res-1" src="./pictures/res1.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 2<br>task: check if a number is even or odd. print "odd" if the number is odd or
+                            "even" if the number is even</td>
+                        <td><img id="ex-2-pycode" src="./pictures/ex2_pycode.png" /></td>
+                        <td><img id="ex-2-tryPy" src="./pictures/ex2_trypy.png" width="200"></td>
+                        <td><img id="res-2" src="./pictures/res2.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 3<br>task: use the base and height of a triangle to calculate its area</td>
+                        <td><img id="ex-3-pycode" src="./pictures/ex3_pycode.png" /></td>
+                        <td><img id="ex-3-tryPy" src="./pictures/ex3_trypy.png" width="200"></td>
+                        <td><img id="res-3" src="./pictures/res3.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 4<br>task: using the diameter of a circle, calculate its circumference and its area
+                            (use 3.14 for pi)</td>
+                        <td><img id="ex-4-pycode" src="./pictures/ex4_pycode.png" /></td>
+                        <td><img id="ex-4-tryPy" src="./pictures/ex4_trypy.png" width="200"></td>
+                        <td><img id="res-4" src="./pictures/res4.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 5<br>task: using a number of your choice, print out all non-negative numbers leading
+                            up to it</td>
+                        <td><img id="ex-5-pycode" src="./pictures/ex5_pycode.png" /></td>
+                        <td><img id="ex-5-tryPy" src="./pictures/ex5_trypy.png" width="200"></td>
+                        <td><img id="res-5" src="./pictures/res5.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 6<br>task: using two numbers (a coefficient and an exponent), print the coefficient
+                            to the power of the exponent</td>
+                        <td><img id="ex-6-pycode" src="./pictures/ex6_pycode.png" /></td>
+                        <td><img id="ex-6-tryPy" src="./pictures/ex6_trypy.png" width="200"></td>
+                        <td><img id="res-6" src="./pictures/res6.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 7<br>task: print the absolute value of a number</td>
+                        <td><img id="ex-7-pycode" src="./pictures/ex7_pycode.png" /></td>
+                        <td><img id="ex-7-tryPy" src="./pictures/ex7_trypy.png" width="200"></td>
+                        <td><img id="res-7" src="./pictures/res7.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 8<br>task: print the difference between a given number and 21, if the number is
+                            greater than 21 print double the absolute difference</td>
+                        <td><img id="ex-8-pycode" src="./pictures/ex8_pycode.png" /></td>
+                        <td><img id="ex-8-tryPy" src="./pictures/ex8_trypy.png" width="200"></td>
+                        <td><img id="res-8" src="./pictures/res8.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 9<br>task: use a number and a range to check if the number is within the range of
+                            5000 (inclusive). print "yes!" if it is or "no" if it isn't</td>
+                        <td><img id="ex-9-pycode" src="./pictures/ex9_pycode.png" /></td>
+                        <td><img id="ex-9-tryPy" src="./pictures/ex9_trypy.png" width="200"></td>
+                        <td><img id="res-9" src="./pictures/res9.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 10<br>task: print the sum of two numbers, but if the numbers are equal, print 0</td>
+                        <td><img id="ex-10-pycode" src="./pictures/ex10_pycode.png" /></td>
+                        <td><img id="ex-10-tryPy" src="./pictures/ex10_trypy.png" width="200"></td>
+                        <td><img id="res-10" src="./pictures/res10.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 11<br>task: print the square of the sum of two numbers (x+y)^2</td>
+                        <td><img id="ex-11-pycode" src="./pictures/ex11_pycode.png" /></td>
+                        <td><img id="ex-11-tryPy" src="./pictures/ex11_trypy.png" width="200"></td>
+                        <td><img id="res-11" src="./pictures/res11.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 12<br>task: print the sum of all digits from an integer (ex. 12345 will output 15)
+                        </td>
+                        <td><img id="ex-12-pycode" src="./pictures/ex12_pycode.png" /></td>
+                        <td><img id="ex-12-tryPy" src="./pictures/ex12_trypy.png" width="200"></td>
+                        <td><img id="res-12" src="./pictures/res12.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 13<br>task: print the future value of a specified principal amount, rate of
+                            interest, and a number of years. don't worry about rounding</td>
+                        <td><img id="ex-13-pycode" src="./pictures/ex13_pycode.png" /></td>
+                        <td><img id="ex-13-tryPy" src="./pictures/ex13_trypy.png" width="200"></td>
+                        <td><img id="res-13" src="./pictures/res13.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 14<br>task: convert a length in feet and inches to centimeters using inch to
+                            centimeter conversion of 2.54 cm/in</td>
+                        <td><img id="ex-14-pycode" src="./pictures/ex14_pycode.png" /></td>
+                        <td><img id="ex-14-tryPy" src="./pictures/ex14_trypy.png" width="200"></td>
+                        <td><img id="res-14" src="./pictures/res14.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 15<br>task: check if all digits of an integer are the same (print "all the same" if
+                            they are, "at least one difference" if not)</td>
+                        <td><img id="ex-15-pycode" src="./pictures/ex15_pycode.png" /></td>
+                        <td><img id="ex-15-tryPy" src="./pictures/ex15_trypy.png" width="200"></td>
+                        <td><img id="res-15" src="./pictures/res15.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 16<br>task: remove and print every third digit from an integer (start from end, move
+                            to beginning)</td>
+                        <td><img id="ex-16-pycode" src="./pictures/ex16_pycode.png" /></td>
+                        <td><img id="ex-16-tryPy" src="./pictures/ex16_trypy.png" width="200"></td>
+                        <td><img id="res-16" src="./pictures/res16.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 17<br>task: count the number of times a specified digit appears in an integer</td>
+                        <td><img id="ex-17-pycode" src="./pictures/ex17_pycode.png" /></td>
+                        <td><img id="ex-17-tryPy" src="./pictures/ex17_trypy.png" width="200"></td>
+                        <td><img id="res-17" src="./pictures/res17.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 18<br>task: check if three lengths form a valid triangle (print "could be a
+                            triangle" if yes, "no triangle here" if no)</td>
+                        <td><img id="ex-18-pycode" src="./pictures/ex18_pycode.png" /></td>
+                        <td><img id="ex-18-tryPy" src="./pictures/ex18_trypy.png" width="200"></td>
+                        <td><img id="res-18" src="./pictures/res18.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 19<br>task: print the absolute value of the difference between the first digit and
+                            last digit of an integer</td>
+                        <td><img id="ex-19-pycode" src="./pictures/ex19_pycode.png" /></td>
+                        <td><img id="ex-19-tryPy" src="./pictures/ex19_trypy.png" width="200"></td>
+                        <td><img id="res-19" src="./pictures/res19.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 20<br>task: from two integers, print the sum of all values between the two numbers
+                            (not inclusive)</td>
+                        <td><img id="ex-20-pycode" src="./pictures/ex20_pycode.png" /></td>
+                        <td><img id="ex-20-tryPy" src="./pictures/ex20_trypy.png" width="200"></td>
+                        <td><img id="res-20" src="./pictures/res20.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 21<br>task: check if each digit in an integer is increasing or staying the same. if
+                            there is any decreasing, print "at least one decrease found". otherwise print "all
+                            increasing or staying the same"</td>
+                        <td><img id="ex-21-pycode" src="./pictures/ex21_pycode.png" /></td>
+                        <td><img id="ex-21-tryPy" src="./pictures/ex21_trypy.png" width="200"></td>
+                        <td><img id="res-21" src="./pictures/res21.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>example 22<br>task: print the sum of all squares of all digits in an integer (ex.
+                            123=1^2+2^2+3^2=14)</td>
+                        <td><img id="ex-22-pycode" src="./pictures/ex22_pycode.png" /></td>
+                        <td><img id="ex-22-tryPy" src="./pictures/ex22_trypy.png" width="200"></td>
+                        <td><img id="res-22" src="./pictures/res22.png" /></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Implementation -->
+            <div id="part6" class="hide">
+                <div class="section">
+                    <h4>Implementation</h4>
+                    <p>
+                        To implement this code we first created our blocks. We made a base block class which has all the
+                        base properties of a block, such as dimensions, color, rendering method, and movement. Then all
+                        of
+                        our other blocks inherit from the base block and have their own additional properties and
+                        methods as
+                        needed. In order to handle the actual interpreting of blocks, we made a block manager. This
+                        class
+                        handles all of the tracking of blocks, how they snap together, and also interprets the block
+                        code. In order to interpret the code the block manager keeps track of every block connected to
+                        the start block. When the "s" key is pressed the block manager will tokenize the blocks into a
+                        string of python code then creates a code object using that string. The code object is then
+                        executed and the result is printed to the console. When the "r" key is pressed, all blocks
+                        are reset to the original selection menu.
+                    </p>
+                </div>
+                <div class="divider"></div>
+                <div class="section" id="requirements_sect">
+                    <h4>Requirements</h4>
+                    <p style="margin-bottom: 0">
+                        This project has a few requirements. They are listed below.
+                    </p>
+                    <ul>
+                        <li>
+                            Python3
+                            <ul>
+                                <li>
+                                    You can get Python3 from this
+                                    <a href="https://www.python.org/downloads/"> link</a>.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Pygame
+                            <ul>
+                                <li>
+                                    Pygame is a video game library for python.
+                                    You can find the installation page
+                                    <a href="https://www.pygame.org/wiki/Compilation"> here</a>.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                    <h4>Running tryPy</h4>
+                    <p style="margin-bottom: 0">
+                        To run tryPy, type the
+                        following into the command line while in the main directory:
+                    </p>
+                    <code> $ python3 main.py </code>
+                    <p style="margin-top: 0;">Make sure you have installed all of the <a
+                            href="#requirements_sect">requirements</a> before running!</p>
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                <h4>Using tryPy</h4>
+                <p>Once you have a tryPy window open and running, the world is your oyster! To use tryPy, you MUST start with a "start"
+                    block. This is what tells the interpreter where to look for code. To add code, simply drag blocks from the selection menu
+                    and connect them to each other.
+                </p><p>
+                    To connect blocks, bring the block to the middle of the block you want to connect it to. In loops and conditional
+                    statements, to add blocks outside of the loop or condition, bring the block to the left of the block you want to
+                    connect it to. If you want to add text to a block, make sure you add it BEFORE you connect it to another block.
+                </p><p>
+                    To run your tryPy code, click out of any text box you may be in and hit the "s" key. This will run your code and output it
+                    to the terminal. Did you make a mistake and want to restart? No worries! Just hit the "r" key (as long as you're
+                    out of any text box) and all of your blocks will be reset! Do you want to see the Python equivalent of your tryPy code?
+                    Just press "p" and the Python code will output to the terminal!
+                </p><p>
+                    If you're a visual learner, check out the videos in the <a href="javascript:tabSelect('part2')">Presentation tab</a>!
+                </p>
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                    <h4>Note on Implementation</h4>
+                    <p>Our implementation functions as a proof of concept for tryPy. While the implementation fulfils
+                        the basic
+                        requirements of tryPy, there are still some bugs that would be squashed with more time.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <p></p>
+</body>
+
+</html>
+<script type="text/javascript">
+    function tabSelect(tabName) {
+        const newTab = document.querySelector("[data-tab=" + tabName + "]");
+        const currentTab = document.querySelector(".active[data-tab]");
+        newTab.classList.toggle("active");
+        currentTab.classList.toggle("active");
+
+        const currentTabContent = document.getElementById(
+            currentTab.getAttribute("data-tab")
+        );
+        const newTabContent = document.getElementById(
+            newTab.getAttribute("data-tab")
+        );
+        currentTabContent.classList.toggle("hide");
+        newTabContent.classList.toggle("hide");
+        window.scrollTo(0, 0);
+    }
+
+    function readTextFile(file) {
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", file, false);
+        rawFile.onreadystatechange = function () {
+            if (rawFile.readyState === 4) {
+                if (rawFile.status === 200 || rawFile.status == 0) {
+                    var allText = rawFile.responseText;
+                    return allText;
+                }
+            }
+        };
+        rawFile.send(null);
+        return rawFile.responseText;
+    }
+
+    function setTestCase(num) {
+        const newLi = document.querySelector("[test-case=case-" + num + "]");
+        const oldLi = document.querySelector(".underline[test-case]");
+        newLi.classList.toggle("underline");
+        oldLi.classList.toggle("underline");
+
+        const previousImage = document.querySelector(
+            "#part3-test-case-img-container :not(.hide)"
+        );
+        // thanks Dr. Yessick
+        if (previousImage != null) {
+            previousImage.classList.toggle("hide");
+        }
+        const nextImage = document.querySelector("#test-case-" + num);
+        nextImage.classList.toggle("hide");
+    }
+
+    /*
+      // The following can be used to load test case results live ONLY if the page is being hosted on a server.
+      const testNumDisplay = document.getElementById("test-case-num");
+      const testOutputNumDisplay = document.getElementById("test-output-num");
+      const testDisplay = document.getElementById("test-case-display");
+      const testAnsDisplay = document.getElementById("test-result-display");
+      setTestCase(1);
+
+      function setTestCase(num) {
+        // handle list updating
+        const newLi = document.querySelector("[test-case=case-" + num + "]");
+        const oldLi = document.querySelector(".underline[test-case]");
+        newLi.classList.toggle("underline");
+        oldLi.classList.toggle("underline");
+        // handle test case updating
+        testNumDisplay.innerHTML = "Test Case " + num + ":";
+        testOutputNumDisplay.innerHTML = "Test Case Output " + num + ":";
+        testDisplay.innerHTML = readTextFile("../tester/tests/test" + num + ".lisp");
+        testAnsDisplay.innerHTML = readTextFile(
+          "../tester/tests/test" + num + ".ans"
+        ).substring(1);
+        if (testAnsDisplay.innerHTML[0] === "\n") {
+          testAnsDisplay.innerHTML = testAnsDisplay.innerHTML.substring(1);
+        }
+      }
+      */
+</script>
